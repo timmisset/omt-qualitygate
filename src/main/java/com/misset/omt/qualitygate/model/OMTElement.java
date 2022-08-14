@@ -1,16 +1,19 @@
 package com.misset.omt.qualitygate.model;
 
-import org.sonar.api.batch.fs.InputFile;
-import org.sonar.api.batch.sensor.SensorContext;
+import org.yaml.snakeyaml.nodes.Node;
+
+import java.util.Collection;
 
 public interface OMTElement {
 
     /**
-     * Validate the OMT element with the SensorContext against the provided input file
-     * Every file on the file system that is part of the OMT language is processed using this method.
-     * Within the structure of the OMT file, the entire document is processed and validate is called
-     * on every identified element.
+     * Returns a list with all the direct child elements of this OMTElement
      */
-    void validate(SensorContext context, InputFile inputFile);
+    Collection<OMTElement> getChildren();
 
+    /**
+     * Returns the underlying YAML node that contains source information about the OMT element
+     * such as the location information, node type etc.
+     */
+    Node getNode();
 }

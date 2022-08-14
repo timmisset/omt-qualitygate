@@ -1,6 +1,8 @@
 package com.misset.omt.qualitygate.model.maps.variables;
 
-public interface DeclaredVariable {
+import com.misset.omt.qualitygate.model.OMTElement;
+
+public interface DeclaredVariable extends OMTElement {
 
     String getName();
 

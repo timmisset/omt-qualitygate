@@ -3,8 +3,7 @@ package com.misset.omt.qualitygate.rules;
 import com.misset.omt.qualitygate.checks.OMTCheck;
 import com.misset.omt.qualitygate.checks.VariableNameMustStartWithSymbol;
 import com.misset.omt.qualitygate.language.OMTLanguage;
-import com.misset.omt.qualitygate.model.maps.files.OMTFile;
-import com.misset.omt.qualitygate.parser.OMTParser;
+import com.misset.omt.qualitygate.visitor.ElementVisitor;
 import org.sonar.api.batch.fs.FilePredicate;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.rule.CheckFactory;
@@ -12,22 +11,19 @@ import org.sonar.api.batch.rule.Checks;
 import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
-import org.sonar.api.rule.RuleKey;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OMTSensor implements Sensor {
 
-    private final Checks<OMTCheck> checks;
+    private static final List<ElementVisitor> visitors = new ArrayList<>();
 
-    private final OMTParser parser = new OMTParser();
-
-    public OMTSensor(CheckFactory checkFactory) {
-        checks = checkFactory.create(OMTRepository.REPOSITORY_KEY);
-        checks.addAnnotatedChecks(
-                VariableNameMustStartWithSymbol.class
-        );
+    public static void extend(ElementVisitor elementVisitor) {
+        visitors.add(elementVisitor);
     }
+
+    public OMTSensor() { }
 
     @Override
     public void describe(SensorDescriptor descriptor) {
@@ -42,15 +38,6 @@ public class OMTSensor implements Sensor {
     }
 
     private void checkFile(SensorContext context, InputFile file) {
-        try {
-            OMTFile omtFile = parser.process(file.contents(), parser.getFileType(file.filename()));
-            omtFile.validate(context, file);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static boolean isActive(SensorContext context, RuleKey key) {
-        return context.activeRules().find(key) != null;
+        visitors.forEach(elementVisitor -> elementVisitor.visitElements(context, file));
     }
 }

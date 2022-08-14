@@ -3,6 +3,7 @@ package com.misset.omt.qualitygate;
 import com.misset.omt.qualitygate.model.maps.files.OMTFile;
 import com.misset.omt.qualitygate.model.maps.files.OMTFileType;
 import com.misset.omt.qualitygate.parser.OMTParser;
+import com.misset.omt.qualitygate.visitor.ElementVisitor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -16,6 +17,8 @@ import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.issue.NewIssue;
 import org.sonar.api.batch.sensor.issue.NewIssueLocation;
 import org.sonar.api.rule.RuleKey;
+
+import java.io.IOException;
 
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
@@ -46,6 +49,8 @@ public abstract class OMTSensorTest {
 
     protected abstract RuleKey getRule();
 
+    protected abstract ElementVisitor getVisitor();
+
     @BeforeEach
     void setUp() {
         /*
@@ -69,8 +74,14 @@ public abstract class OMTSensorTest {
     }
 
     protected void runValidation(String content, OMTFileType type) {
-        OMTFile omtFile = new OMTParser().process(content, type);
-        omtFile.validate(context, inputFile);
+        try {
+            when(inputFile.contents()).thenReturn(content);
+            when(inputFile.filename()).thenReturn("file." + type.getExtension());
+            getVisitor().visitElements(context, inputFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     protected void assertNoIssues(String content) {

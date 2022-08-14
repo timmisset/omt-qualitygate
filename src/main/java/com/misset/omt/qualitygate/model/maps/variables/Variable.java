@@ -60,11 +60,4 @@ public class Variable extends AbstractStrictShorthandedMap implements DeclaredVa
                 get(NAME, VariableNameStringElement.class).getName();
     }
 
-    @Override
-    public void validateTree(SensorContext context, InputFile inputFile) {
-        super.validateTree(context, inputFile);
-        if(isShorthanded() && VariableNameMustStartWithSymbol.isIssue(context, getName())) {
-            newIssue(context, VariableNameMustStartWithSymbol.KEY, inputFile);
-        }
-    }
 }

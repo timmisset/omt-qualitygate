@@ -9,6 +9,7 @@ import org.yaml.snakeyaml.nodes.NodeId;
 import org.yaml.snakeyaml.nodes.SequenceNode;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public abstract class AbstractSequence extends OMTBaseElement {
@@ -20,7 +21,7 @@ public abstract class AbstractSequence extends OMTBaseElement {
     }
 
     @Override
-    protected NodeId getExpectedNodeId() {
+    public NodeId getExpectedNodeId() {
         return NodeId.sequence;
     }
 
@@ -39,8 +40,7 @@ public abstract class AbstractSequence extends OMTBaseElement {
     protected abstract OMTElement createInstance(Node node);
 
     @Override
-    public void validateTree(SensorContext context, InputFile inputFile) {
-        super.validateTree(context, inputFile);
-        elements.forEach(omtElement -> omtElement.validate(context, inputFile));
+    public Collection<OMTElement> getChildren() {
+        return elements;
     }
 }

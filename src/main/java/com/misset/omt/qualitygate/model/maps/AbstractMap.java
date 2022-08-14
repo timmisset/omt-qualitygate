@@ -2,8 +2,6 @@ package com.misset.omt.qualitygate.model.maps;
 
 import com.misset.omt.qualitygate.model.OMTBaseElement;
 import com.misset.omt.qualitygate.model.OMTElement;
-import org.sonar.api.batch.fs.InputFile;
-import org.sonar.api.batch.sensor.SensorContext;
 import org.yaml.snakeyaml.nodes.*;
 
 import java.util.*;
@@ -30,7 +28,7 @@ public abstract class AbstractMap extends OMTBaseElement {
     }
 
     @Override
-    protected NodeId getExpectedNodeId() {
+    public NodeId getExpectedNodeId() {
         return NodeId.mapping;
     }
 
@@ -62,8 +60,7 @@ public abstract class AbstractMap extends OMTBaseElement {
     }
 
     @Override
-    public void validateTree(SensorContext context, InputFile inputFile) {
-        super.validateTree(context, inputFile);
-        getValues().forEach(omtElement -> omtElement.validate(context, inputFile));
+    public Collection<OMTElement> getChildren() {
+        return mapping.values();
     }
 }
