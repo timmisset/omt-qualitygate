@@ -1,0 +1,56 @@
+<p>
+    To keep our code organised we keep utilities such as root Queries and Commands in separate files.
+    Utilities that require context from a ModelItem (Activity, Component) should be put in the commands/queries
+    section of those components.<br>
+    <br>
+    The following items are considered utilities:<br>
+    <ul>
+        <li>ODT Commands/Queries in the file root</li>
+        <li>OMT Procedure</li>
+        <li>OMT Standalone Query</li>
+    </ul>
+    The following items are considered model items that should populate without utilities:<br>
+    <ul>
+        <li>OMT Activity</li>
+        <li>OMT Component</li>
+        <li>OMT Ontology</li>
+        <li>OMT Loadable</li>
+    </ul>
+</p>
+
+<h2>Parameters</h2>
+None
+
+<p>Examples</p>
+<p>The following code snippet would <strong>PASS</strong>:</p>
+<pre>
+commands: |
+    DEFINE COMMAND myCommand => {}
+
+queries: |
+    DEFINE COMMAND queries => {}
+
+model:
+    MyProcedure: !Procedure
+        onRun:
+
+    MyStandaloneQuery: !StandaloneQuery
+        query:
+</pre>
+
+<p>the following code snippet would <strong>FAIL</strong>:</p>
+<pre>
+commands: |
+    DEFINE COMMAND myCommand => {}
+
+queries: |
+    DEFINE COMMAND queries => {}
+
+model:
+    MyActivity: !Activity
+        onStart:
+
+    MyStandaloneQuery: !StandaloneQuery
+        query:
+</pre>
+

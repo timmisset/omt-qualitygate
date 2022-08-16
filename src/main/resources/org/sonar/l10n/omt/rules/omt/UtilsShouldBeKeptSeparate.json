@@ -1,0 +1,6 @@
+{
+  "title": "Utils should be kept separate",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "defaultSeverity": "Major"
+}

@@ -1,0 +1,35 @@
+<p>
+    An imported member should be used.
+
+    You can exclude certain files from this analysis where it should be explicitly permitted to import
+    members that are not used within its own scope. For example, the index.omt used by modules to expose
+    functionalities to other modules.
+</p>
+
+<h2>Parameters</h2>
+<dl>
+    <dt>exclusion</dt>
+    <dd>Defines one or more filenames (; seperated) that are allowed to import members</dd>
+</dl>
+
+<p>Examples</p>
+<p>With <code>exclusion = index.omt</code>
+    the following <b><u>index.omt</u></b> code snippet would <strong>PASS</strong>:</p>
+<pre>
+import:
+    myFile:
+    - importedMember
+</pre>
+
+the following <b><u>regular-file.omt</u></b> code snippet would <strong>PASS</strong>:</p>
+<pre>
+import:
+    myFile:
+    - importedMember
+
+model:
+    MyActivity: !Activity
+        onStart: |
+            @LOG(importedMember)
+</pre>
+

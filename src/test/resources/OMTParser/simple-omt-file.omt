@@ -1,0 +1,13 @@
+model:
+  MyActivity: !Activity
+    title: Title
+    variables:
+      - name: $variableA
+        value: 'Value A'
+        onChange: |
+          @LOG('test');
+      - $shorthand = 'value 2'
+      - $shorthand2
+    commands: |
+      DEFINE COMMAND simpleCommand => { RETURN true; }
+

@@ -1,0 +1,6 @@
+{
+  "title": "Variable, Parameter or Binding declaration must be used",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "defaultSeverity": "Minor"
+}

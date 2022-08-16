@@ -1,0 +1,7 @@
+/target/
+/.idea/
+/scripts/ce.log
+/scripts/es.log
+/scripts/sonar.log
+/scripts/web.log
+/omt-qualitygate.iml
