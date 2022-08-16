@@ -1,7 +1,7 @@
 package com.misset.omt.qualitygate.model.sequences;
 
 import com.misset.omt.qualitygate.model.OMTBaseElement;
-import com.misset.omt.qualitygate.model.maps.modelItem.ontology.OntologyClass;
+import com.misset.omt.qualitygate.model.maps.modelitem.ontology.OntologyClass;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class OntologyClassesSequence extends AbstractSequence {

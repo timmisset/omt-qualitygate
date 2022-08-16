@@ -1,6 +1,6 @@
 package com.misset.omt.qualitygate.parser;
 
-import com.misset.omt.qualitygate.model.maps.modelItem.Activity;
+import com.misset.omt.qualitygate.model.maps.modelitem.Activity;
 import org.yaml.snakeyaml.TypeDescription;
 import org.yaml.snakeyaml.constructor.Constructor;
 import org.yaml.snakeyaml.nodes.Tag;

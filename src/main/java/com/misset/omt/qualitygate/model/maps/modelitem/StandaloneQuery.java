@@ -1,6 +1,5 @@
-package com.misset.omt.qualitygate.model.maps.modelItem;
+package com.misset.omt.qualitygate.model.maps.modelitem;
 
-import com.misset.omt.qualitygate.model.OMTBaseElement;
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.GraphSelection;
 import com.misset.omt.qualitygate.model.maps.Prefixes;

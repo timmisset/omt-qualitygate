@@ -1,8 +1,8 @@
 package com.misset.omt.qualitygate.model.maps;
 
 import com.misset.omt.qualitygate.model.OMTElement;
-import com.misset.omt.qualitygate.model.maps.modelItem.*;
-import com.misset.omt.qualitygate.model.maps.modelItem.ontology.Ontology;
+import com.misset.omt.qualitygate.model.maps.modelitem.*;
+import com.misset.omt.qualitygate.model.maps.modelitem.ontology.Ontology;
 import org.yaml.snakeyaml.nodes.Node;
 import org.yaml.snakeyaml.nodes.Tag;
 

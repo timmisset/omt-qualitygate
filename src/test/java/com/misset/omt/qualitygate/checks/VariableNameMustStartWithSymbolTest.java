@@ -1,8 +1,9 @@
 package com.misset.omt.qualitygate.checks;
 
 import com.misset.omt.qualitygate.OMTSensorTest;
-import com.misset.omt.qualitygate.visitor.ElementVisitor;
-import com.misset.omt.qualitygate.visitor.VariableVisitor;
+import com.misset.omt.qualitygate.model.OMTElement;
+import com.misset.omt.qualitygate.visitors.ElementVisitor;
+import com.misset.omt.qualitygate.visitors.VariableVisitor;
 import org.junit.jupiter.api.Test;
 import org.sonar.api.rule.RuleKey;
 
@@ -14,7 +15,7 @@ class VariableNameMustStartWithSymbolTest extends OMTSensorTest {
     }
 
     @Override
-    protected ElementVisitor getVisitor() {
+    protected ElementVisitor<? extends OMTElement> getVisitor() {
         return VariableVisitor.INSTANCE;
     }
 
@@ -44,7 +45,7 @@ class VariableNameMustStartWithSymbolTest extends OMTSensorTest {
                 "       variables:\n" +
                 "       - name: name\n" +
                 "         value: 'test'\n";
-        assertIssue(content);
+        assertHasIssue(content);
     }
 
     @Test
@@ -53,7 +54,7 @@ class VariableNameMustStartWithSymbolTest extends OMTSensorTest {
                 "   MyActivity: !Activity\n" +
                 "       variables:\n" +
                 "       - name = 'test'\n";
-        assertIssue(content);
+        assertHasIssue(content);
     }
 
     @Test

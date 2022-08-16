@@ -1,24 +1,23 @@
-package com.misset.omt.qualitygate.model.maps.modelItem.ontology;
+package com.misset.omt.qualitygate.model.maps.modelitem;
 
-import com.misset.omt.qualitygate.model.OMTBaseElement;
 import com.misset.omt.qualitygate.model.OMTElement;
-import com.misset.omt.qualitygate.model.maps.modelItem.ModelItem;
 import com.misset.omt.qualitygate.model.scalars.StringElement;
 import org.yaml.snakeyaml.nodes.Node;
 
 import java.util.HashMap;
 import java.util.function.Function;
 
-public class OntologyClass extends ModelItem {
+public class Loadable extends ModelItem {
 
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
 
     static {
         properties.put("id", StringElement::new);
-        properties.put("properties", OntologyProperties::new);
+        properties.put("path", StringElement::new);
+        properties.put("schema", StringElement::new);
     }
 
-    public OntologyClass(Node node) {
+    public Loadable(Node node) {
         super(node);
     }
 

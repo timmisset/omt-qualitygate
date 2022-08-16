@@ -6,11 +6,13 @@ import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.yaml.snakeyaml.nodes.Node;
 import org.yaml.snakeyaml.nodes.NodeId;
+import org.yaml.snakeyaml.nodes.ScalarNode;
 import org.yaml.snakeyaml.nodes.SequenceNode;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class AbstractScalar extends OMTBaseElement {
 
@@ -28,8 +30,17 @@ public abstract class AbstractScalar extends OMTBaseElement {
 
     }
 
+    protected ScalarNode getNodeAsScalar() {
+        return getAsNode(ScalarNode.class);
+    }
     @Override
     public Collection<OMTElement> getChildren() {
         return new ArrayList<>();
+    }
+
+    public String getValueOrEmpty() {
+        return Optional.ofNullable(getNodeAsScalar())
+                .map(ScalarNode::getValue)
+                .orElse("");
     }
 }

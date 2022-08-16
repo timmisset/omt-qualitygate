@@ -1,0 +1,6 @@
+{
+  "title": "An OMT variable, parameter or binding must always start with the $-symbol",
+  "type": "BUG",
+  "status": "ready",
+  "defaultSeverity": "Blocker"
+}

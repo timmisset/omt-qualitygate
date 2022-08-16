@@ -11,6 +11,8 @@ import org.yaml.snakeyaml.nodes.SequenceNode;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public abstract class AbstractSequence extends OMTBaseElement {
 
@@ -41,6 +43,6 @@ public abstract class AbstractSequence extends OMTBaseElement {
 
     @Override
     public Collection<OMTElement> getChildren() {
-        return elements;
+        return elements.stream().filter(Objects::nonNull).collect(Collectors.toList());
     }
 }

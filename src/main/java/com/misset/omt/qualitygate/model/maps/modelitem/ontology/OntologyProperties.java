@@ -1,8 +1,7 @@
-package com.misset.omt.qualitygate.model.maps.modelItem.ontology;
+package com.misset.omt.qualitygate.model.maps.modelitem.ontology;
 
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.AbstractMap;
-import com.misset.omt.qualitygate.model.maps.Model;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class OntologyProperties extends AbstractMap {

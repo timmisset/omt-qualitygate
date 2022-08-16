@@ -1,11 +1,20 @@
 package com.misset.omt.qualitygate.language;
 
-import org.sonar.api.resources.Language;
+import com.misset.omt.qualitygate.rules.OMTRulesDefinition;
+import org.sonar.api.config.Configuration;
+import org.sonar.api.resources.AbstractLanguage;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 
-public class OMTLanguage implements Language {
-    public static final String KEY = "OMT";
-    public static final String[] FILE_SUFFIX = {"omt"};
-    public static final String NAME = "OMT Language";
+public class OMTLanguage extends AbstractLanguage {
+    private static final Logger LOGGER = Loggers.get(OMTLanguage.class);
+
+    public static final String KEY = "omt";
+    public static final String NAME = "OMT";
+
+    public OMTLanguage() {
+        super(KEY, NAME);
+    }
 
     @Override
     public String getKey() {
@@ -19,6 +28,11 @@ public class OMTLanguage implements Language {
 
     @Override
     public String[] getFileSuffixes() {
-        return FILE_SUFFIX;
+        return new String[] { "omt" };
+    }
+
+    @Override
+    public boolean publishAllFiles() {
+        return true;
     }
 }

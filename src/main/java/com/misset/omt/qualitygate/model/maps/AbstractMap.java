@@ -61,6 +61,6 @@ public abstract class AbstractMap extends OMTBaseElement {
 
     @Override
     public Collection<OMTElement> getChildren() {
-        return mapping.values();
+        return mapping.values().stream().filter(Objects::nonNull).collect(Collectors.toList());
     }
 }

@@ -14,7 +14,7 @@ import static com.misset.omt.qualitygate.parser.OMTConstructorBuilder.getConstru
 
 public class OMTParser {
 
-    private Yaml yaml;
+    private final Yaml yaml;
 
     public OMTParser() {
         yaml = new Yaml();

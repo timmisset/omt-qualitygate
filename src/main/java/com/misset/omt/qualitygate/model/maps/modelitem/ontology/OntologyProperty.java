@@ -1,6 +1,5 @@
-package com.misset.omt.qualitygate.model.maps.modelItem.ontology;
+package com.misset.omt.qualitygate.model.maps.modelitem.ontology;
 
-import com.misset.omt.qualitygate.model.OMTBaseElement;
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.AbstractStrictMap;
 import com.misset.omt.qualitygate.model.scalars.BooleanElement;

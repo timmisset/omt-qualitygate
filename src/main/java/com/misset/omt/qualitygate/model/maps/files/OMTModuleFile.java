@@ -1,12 +1,11 @@
 package com.misset.omt.qualitygate.model.maps.files;
 
-import com.misset.omt.qualitygate.model.OMTBaseElement;
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.AbstractStrictMap;
 import com.misset.omt.qualitygate.model.maps.GraphSelection;
 import com.misset.omt.qualitygate.model.maps.actions.Actions;
 import com.misset.omt.qualitygate.model.maps.actions.GlobalActions;
-import com.misset.omt.qualitygate.model.maps.modelItem.GraphShapeHandlers;
+import com.misset.omt.qualitygate.model.maps.modelitem.GraphShapeHandlers;
 import com.misset.omt.qualitygate.model.scalars.StringElement;
 import com.misset.omt.qualitygate.model.scalars.injected.ODTScript;
 import com.misset.omt.qualitygate.model.sequences.ExportSequence;

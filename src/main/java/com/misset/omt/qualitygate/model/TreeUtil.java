@@ -3,6 +3,7 @@ package com.misset.omt.qualitygate.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class TreeUtil {
@@ -20,8 +21,20 @@ public class TreeUtil {
     /**
      * Returns a list with all the child elements (recursively) of this OMTElement of the specific class
      */
-    public static Collection<OMTElement> findChildren(OMTElement element, Class<? extends OMTElement> elementClass) {
-        return getAllChildren(element).stream().filter(elementClass::isInstance).collect(Collectors.toList());
+    public static <T extends OMTElement> Collection<T> findChildren(OMTElement element, Class<T> elementClass) {
+        return getAllChildren(element).stream().filter(elementClass::isInstance)
+                .map(elementClass::cast)
+                .collect(Collectors.toList());
+    }
+
+    public static <T extends OMTElement> Optional<T> findChild(OMTElement element, Class<T> elementClass) {
+        return getAllChildren(element).stream().filter(elementClass::isInstance)
+                .map(elementClass::cast)
+                .findFirst();
+    }
+
+    public static boolean isAncestor(OMTElement ancestor, OMTElement element) {
+        return getAllChildren(ancestor).contains(element);
     }
 
 }

@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 public class Param extends AbstractStrictShorthandedMap implements DeclaredVariable {
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
     private static final HashMap<String, String> shorthandedValues = new HashMap<>();
-    private static final Pattern pattern = Pattern.compile("^(?<name>\\$\\w+)\\s*(\\((?<type>[^)]+)\\))?$");
+    private static final Pattern pattern = Pattern.compile("^(?<name>\\$?\\w+)\\s*(\\((?<type>[^)]+)\\))?$");
 
     static {
         properties.put("name", VariableNameStringElement::new);

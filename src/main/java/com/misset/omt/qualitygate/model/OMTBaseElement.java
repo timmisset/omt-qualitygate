@@ -23,10 +23,7 @@ public abstract class OMTBaseElement implements OMTElement {
         return node;
     }
 
-    protected ScalarNode getNodeAsScalar() {
-        return getAsNode(ScalarNode.class);
-    }
-    private <T extends Node> T getAsNode(Class<T> asNode) {
+    protected <T extends Node> T getAsNode(Class<T> asNode) {
         if(asNode.isAssignableFrom(node.getClass())) {
             return asNode.cast(node);
         }
