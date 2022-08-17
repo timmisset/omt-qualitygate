@@ -4,6 +4,9 @@ import java.util.Collection;
 
 import org.yaml.snakeyaml.nodes.Node;
 
+/**
+ * Base class for all Yaml nodes that are parsed to specific OMTElements
+ */
 public interface OMTElement {
 
     /**
