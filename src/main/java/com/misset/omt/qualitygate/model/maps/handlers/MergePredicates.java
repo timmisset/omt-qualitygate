@@ -13,6 +13,7 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class MergePredicates extends AbstractHandler {
 
+    public static final String MERGE_PREDICATES = "!MergePredicates";
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
     private static final List<String> REQUIRED = List.of(SUBJECTS, FROM, TYPE);
 

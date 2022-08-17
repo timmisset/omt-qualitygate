@@ -3,25 +3,23 @@ package com.misset.omt.qualitygate.model.sequences;
 import java.util.HashMap;
 import java.util.function.Function;
 
-import com.misset.omt.qualitygate.model.OMTBaseElement;
 import com.misset.omt.qualitygate.model.maps.handlers.AbstractHandler;
 import com.misset.omt.qualitygate.model.maps.handlers.ForbiddenPredicates;
 import com.misset.omt.qualitygate.model.maps.handlers.MergeLists;
 import com.misset.omt.qualitygate.model.maps.handlers.MergePredicates;
 import com.misset.omt.qualitygate.model.maps.handlers.MergeValidation;
 import org.yaml.snakeyaml.nodes.Node;
-import org.yaml.snakeyaml.nodes.Tag;
 
-public class HandlersSequence extends AbstractSequence {
+public class HandlersSequence extends AbstractTaggedValuesSequence<AbstractHandler> {
 
-    private static final HashMap<String, Function<Node, AbstractHandler>> handlers = new HashMap<>();
+    private static final HashMap<String, Function<Node, AbstractHandler>> TAGGED_ELEMENTS = new HashMap<>();
     public static final String HANDLERS = "handlers";
 
     static {
-        handlers.put("!MergePredicates", MergePredicates::new);
-        handlers.put("!MergeLists", MergeLists::new);
-        handlers.put("!MergeValidation", MergeValidation::new);
-        handlers.put("!ForbiddenPredicates", ForbiddenPredicates::new);
+        TAGGED_ELEMENTS.put(MergePredicates.MERGE_PREDICATES, MergePredicates::new);
+        TAGGED_ELEMENTS.put(MergeLists.MERGE_LISTS, MergeLists::new);
+        TAGGED_ELEMENTS.put(MergeValidation.MERGE_VALIDATION, MergeValidation::new);
+        TAGGED_ELEMENTS.put(ForbiddenPredicates.FORBIDDEN_PREDICATES, ForbiddenPredicates::new);
     }
 
     public HandlersSequence(Node node) {
@@ -29,11 +27,7 @@ public class HandlersSequence extends AbstractSequence {
     }
 
     @Override
-    protected OMTBaseElement createInstance(Node node) {
-        Tag tag = node.getTag();
-        if(tag != null) {
-            return handlers.getOrDefault(tag.getValue(), unknownKey -> null).apply(node);
-        }
-        return null;
+    protected HashMap<String, Function<Node, AbstractHandler>> getTaggedElements() {
+        return TAGGED_ELEMENTS;
     }
 }

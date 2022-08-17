@@ -12,6 +12,7 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class MergeValidation extends AbstractHandler {
 
+    public static final String MERGE_VALIDATION = "!MergeValidation";
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
     private static final List<String> REQUIRED = List.of(CONTEXT, QUERY);
 

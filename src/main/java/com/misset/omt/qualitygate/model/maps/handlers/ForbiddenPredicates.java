@@ -12,6 +12,7 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class ForbiddenPredicates extends AbstractHandler {
 
+    public static final String FORBIDDEN_PREDICATES = "!ForbiddenPredicates";
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
     private static final List<String> REQUIRED = List.of(CONTEXT, PREDICATES);
 

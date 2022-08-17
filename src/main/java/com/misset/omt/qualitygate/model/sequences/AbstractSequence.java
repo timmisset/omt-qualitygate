@@ -32,12 +32,12 @@ public abstract class AbstractSequence extends OMTBaseElement {
             ((SequenceNode) node)
                     .getValue()
                     .stream()
-                    .map(this::createInstance)
+                    .map(this::parseSequenceItemNode)
                     .forEach(elements::add);
         }
     }
 
-    protected abstract OMTElement createInstance(Node node);
+    protected abstract OMTElement parseSequenceItemNode(Node node);
 
     @Override
     public Collection<OMTElement> getChildren() {
