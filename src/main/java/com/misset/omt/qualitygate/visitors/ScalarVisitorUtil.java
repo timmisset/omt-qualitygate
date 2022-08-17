@@ -13,7 +13,7 @@ public class ScalarVisitorUtil {
      * @param excluding - exclude from scope, for example the imports: block
      * @param searchFor - search token, for example the name of the imported member
      */
-    public static boolean isUsed(OMTElement scope, OMTElement excluding, String searchFor) {
+    public static boolean containsValue(OMTElement scope, OMTElement excluding, String searchFor) {
         if(searchFor == null) {
             return true;
         }

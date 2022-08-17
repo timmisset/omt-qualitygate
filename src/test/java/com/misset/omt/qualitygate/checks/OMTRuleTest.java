@@ -1,4 +1,4 @@
-package com.misset.omt.qualitygate;
+package com.misset.omt.qualitygate.checks;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.files.OMTFileType;
-import com.misset.omt.qualitygate.visitors.ElementVisitor;
+import com.misset.omt.qualitygate.visitors.AbstractElementVisitor;
 import com.misset.omt.qualitygate.visitors.ElementVisitors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,7 +30,7 @@ import org.sonar.api.batch.sensor.issue.NewIssueLocation;
 import org.sonar.api.rule.RuleKey;
 
 @ExtendWith(MockitoExtension.class)
-public abstract class OMTSensorTest {
+public abstract class OMTRuleTest {
 
     @Mock
     protected SensorContext context;
@@ -55,7 +55,7 @@ public abstract class OMTSensorTest {
 
     protected abstract RuleKey getRule();
 
-    protected abstract ElementVisitor<? extends OMTElement> getVisitor();
+    protected abstract AbstractElementVisitor<? extends OMTElement> getVisitor();
 
     @BeforeEach
     void setUp() {

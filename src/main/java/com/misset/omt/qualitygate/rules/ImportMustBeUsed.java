@@ -1,13 +1,13 @@
-package com.misset.omt.qualitygate.checks;
+package com.misset.omt.qualitygate.rules;
 
-import com.misset.omt.qualitygate.rules.OMTRepository;
+import com.misset.omt.qualitygate.repository.OMTRepository;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.check.Rule;
 import org.sonar.check.RuleProperty;
 
 @Rule(key = ImportMustBeUsed.NAME,
         name = ImportMustBeUsed.NAME)
-public class ImportMustBeUsed implements OMTCheck {
+public class ImportMustBeUsed implements OMTRule {
     public static final String NAME = "ImportMustBeUsed";
 
     public static final RuleKey KEY = OMTRepository.RULE_KEY(NAME);

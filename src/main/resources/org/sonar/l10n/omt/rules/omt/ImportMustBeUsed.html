@@ -1,5 +1,5 @@
 <p>
-    An imported member should be used.
+    If an import member is declared but not used, it is dead code and should be removed.<br>
 
     You can exclude certain files from this analysis where it should be explicitly permitted to import
     members that are not used within its own scope. For example, the index.omt used by modules to expose
@@ -21,7 +21,7 @@ import:
     - importedMember
 </pre>
 
-the following <b><u>regular-file.omt</u></b> code snippet would <strong>PASS</strong>:</p>
+<p>The following <b><u>regular-file.omt</u></b> code snippet would <strong>PASS</strong>:</p>
 <pre>
 import:
     myFile:

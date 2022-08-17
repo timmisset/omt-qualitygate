@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.misset.omt.qualitygate.model.OMTBaseElement;
@@ -25,9 +26,24 @@ public abstract class AbstractMap extends OMTBaseElement {
     public Collection<OMTElement> getValues() {
         return mapping.values().stream().filter(Objects::nonNull).collect(Collectors.toList());
     }
+    public Collection<String> getKeys() {
+        return mapping.keySet();
+    }
 
     public <T extends OMTElement> T get(String key, Class<T> asClass) {
         return asClass.cast(mapping.get(key));
+    }
+
+    public Optional<ScalarNode> findKeyNode(String key) {
+        if(getNode() instanceof MappingNode) {
+            return ((MappingNode) getNode()).getValue().stream()
+                    .map(nodeTuple -> nodeTuple.getKeyNode())
+                    .filter(ScalarNode.class::isInstance)
+                    .map(ScalarNode.class::cast)
+                    .filter(scalarNode -> scalarNode.getValue().equals(key))
+                    .findFirst();
+        }
+        return Optional.empty();
     }
 
     public boolean has(String key) {

@@ -1,5 +1,5 @@
 {
-  "title": "Variable, Parameter or Binding declaration must be used",
+  "title": "Prefix must be used",
   "type": "CODE_SMELL",
   "status": "ready",
   "defaultSeverity": "Major"

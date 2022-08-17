@@ -1,7 +1,7 @@
 package com.misset.omt.qualitygate.language;
 
-import com.misset.omt.qualitygate.checks.OMTChecks;
-import com.misset.omt.qualitygate.rules.OMTRepository;
+import com.misset.omt.qualitygate.repository.OMTRepository;
+import com.misset.omt.qualitygate.rules.OMTRules;
 import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
@@ -22,7 +22,7 @@ public final class OMTQualityProfile implements BuiltInQualityProfilesDefinition
         NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile(OMT_RULES, OMTLanguage.KEY);
         profile.setDefault(true);
 
-        OMTChecks.getActiveChecksByName()
+        OMTRules.getActiveChecksByName()
                 .forEach(name -> profile.activateRule(OMTRepository.REPOSITORY_KEY, name));
 
         profile.done();

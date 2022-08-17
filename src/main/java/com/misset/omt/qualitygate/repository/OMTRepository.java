@@ -1,4 +1,4 @@
-package com.misset.omt.qualitygate.rules;
+package com.misset.omt.qualitygate.repository;
 
 import org.sonar.api.rule.RuleKey;
 

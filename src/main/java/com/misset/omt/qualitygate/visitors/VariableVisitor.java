@@ -1,9 +1,9 @@
 package com.misset.omt.qualitygate.visitors;
 
-import com.misset.omt.qualitygate.checks.VariableNameMustStartWithSymbol;
 import com.misset.omt.qualitygate.model.maps.variables.DeclaredVariable;
+import com.misset.omt.qualitygate.rules.VariableNameMustStartWithSymbol;
 
-public class VariableVisitor extends ElementVisitor<DeclaredVariable> {
+public class VariableVisitor extends AbstractElementVisitor<DeclaredVariable> {
 
     public static final VariableVisitor INSTANCE = new VariableVisitor();
 

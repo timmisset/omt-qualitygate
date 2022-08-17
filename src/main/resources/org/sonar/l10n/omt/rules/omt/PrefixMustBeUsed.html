@@ -1,0 +1,24 @@
+<p>
+    If a prefix is declared but not used, it is dead code and should be removed.<br>
+</p>
+
+<p>Examples</p>
+<p>The following code snippet would <strong>PASS</strong>:</p>
+<pre>
+prefixes:
+    data: &lt;http://data.politie.nl/&gt;
+
+queries:
+    DEFINE QUERY myQuery => /data:myItem
+</pre>
+
+<p>The following code snippet would <strong>FAIL</strong>:</p>
+<pre>
+prefixes:
+    pol: &lt;http://ontologie.politie.nl/def/&gt;
+    data: &lt;http://data.politie.nl/&gt;
+
+queries:
+    DEFINE QUERY myQuery => /data:myItem
+</pre>
+

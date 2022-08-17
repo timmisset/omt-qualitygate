@@ -1,13 +1,13 @@
 package com.misset.omt.qualitygate.checks;
 
-import com.misset.omt.qualitygate.OMTSensorTest;
 import com.misset.omt.qualitygate.model.OMTElement;
-import com.misset.omt.qualitygate.visitors.ElementVisitor;
+import com.misset.omt.qualitygate.rules.UtilsShouldBeKeptSeparate;
+import com.misset.omt.qualitygate.visitors.AbstractElementVisitor;
 import com.misset.omt.qualitygate.visitors.OMTFileVisitor;
 import org.junit.jupiter.api.Test;
 import org.sonar.api.rule.RuleKey;
 
-class UtilsShouldBeKeptSeparateTest extends OMTSensorTest {
+class UtilsShouldBeKeptSeparateTest extends OMTRuleTest {
 
     @Override
     protected RuleKey getRule() {
@@ -15,7 +15,7 @@ class UtilsShouldBeKeptSeparateTest extends OMTSensorTest {
     }
 
     @Override
-    protected ElementVisitor<? extends OMTElement> getVisitor() {
+    protected AbstractElementVisitor<? extends OMTElement> getVisitor() {
         return OMTFileVisitor.INSTANCE;
     }
 

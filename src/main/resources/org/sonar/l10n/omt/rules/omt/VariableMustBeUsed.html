@@ -1,1 +1,29 @@
-An OMT variable, parameter or binding declaration should be used
+<p>
+    If a local variable is declared but not used, it is dead code and should be removed.<br>
+
+    You can declare variables in OMT using
+    <ul>
+        <li>variables</li>
+        <li>params</li>
+        <li>bindings</li>
+    </ul>
+</p>
+
+<p>Examples</p>
+<p>The following code snippet would <strong>PASS</strong>:</p>
+<pre>
+model:
+    MyActivity: !Activity:
+        title: $myVariable
+        variables:
+        - $myVariable
+</pre>
+
+<p>The following code snippet would <strong>FAIL</strong>:</p>
+<pre>
+model:
+    MyActivity: !Activity:
+        variables:
+        - $myVariable
+</pre>
+

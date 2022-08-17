@@ -2,5 +2,5 @@
   "title": "Imported member must be used",
   "type": "CODE_SMELL",
   "status": "ready",
-  "defaultSeverity": "Minor"
+  "defaultSeverity": "Major"
 }

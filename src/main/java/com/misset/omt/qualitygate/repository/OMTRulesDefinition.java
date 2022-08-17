@@ -1,15 +1,18 @@
-package com.misset.omt.qualitygate.rules;
+package com.misset.omt.qualitygate.repository;
 
 import java.util.ArrayList;
 
-import com.misset.omt.qualitygate.checks.OMTChecks;
 import com.misset.omt.qualitygate.language.OMTLanguage;
+import com.misset.omt.qualitygate.rules.OMTRules;
 import org.sonar.api.SonarRuntime;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
 import org.sonarsource.analyzer.commons.RuleMetadataLoader;
 
+/**
+ * The OMTRulesDefinition will create a new Repository that contains all the Rules available to the OMT Language
+ */
 public class OMTRulesDefinition implements RulesDefinition {
     private static final Logger LOGGER = Loggers.get(OMTRulesDefinition.class);
 
@@ -30,7 +33,7 @@ public class OMTRulesDefinition implements RulesDefinition {
 
         RuleMetadataLoader metadataLoader = new RuleMetadataLoader(RULES_DEFINITION_FOLDER, sonarRuntime);
 
-        metadataLoader.addRulesByAnnotatedClass(repository, new ArrayList<>(OMTChecks.getAllChecksByClass()));
+        metadataLoader.addRulesByAnnotatedClass(repository, new ArrayList<>(OMTRules.getAllChecksByClass()));
 
         repository.done();
     }
