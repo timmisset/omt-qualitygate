@@ -1,7 +1,6 @@
-package com.misset.omt.qualitygate.checks;
+package com.misset.omt.qualitygate.rules;
 
 import com.misset.omt.qualitygate.model.OMTElement;
-import com.misset.omt.qualitygate.rules.VariableNameMustStartWithSymbol;
 import com.misset.omt.qualitygate.visitors.AbstractElementVisitor;
 import com.misset.omt.qualitygate.visitors.VariableVisitor;
 import org.junit.jupiter.api.Test;

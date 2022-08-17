@@ -19,6 +19,7 @@ public class OMTRules {
     static {
         // Add checks that should be enabled by default
         ACTIVE_RULES.put(ImportMustBeUsed.NAME, ImportMustBeUsed.class);
+        ACTIVE_RULES.put(ShorthandsShouldBeUsed.NAME, ShorthandsShouldBeUsed.class);
         ACTIVE_RULES.put(UtilsShouldBeKeptSeparate.NAME, UtilsShouldBeKeptSeparate.class);
         ACTIVE_RULES.put(VariableNameMustStartWithSymbol.NAME, VariableNameMustStartWithSymbol.class);
         ACTIVE_RULES.put(VariableMustBeUsed.NAME, VariableMustBeUsed.class);

@@ -32,10 +32,8 @@ import org.yaml.snakeyaml.nodes.SequenceNode;
  */
 public abstract class AbstractElementVisitor<T extends OMTElement> implements ElementVisitor<T> {
     private static final Logger LOGGER = Loggers.get(AbstractElementVisitor.class);
-
     private static final OMTParser parser = new OMTParser();
-
-    protected abstract Class<T> getOMTElementClass();
+    private final Class<T> elementClass;
 
     protected SensorContext context;
 
@@ -43,11 +41,16 @@ public abstract class AbstractElementVisitor<T extends OMTElement> implements El
 
     private T currentElement;
 
+    protected AbstractElementVisitor(Class<T> elementClass) {
+        this.elementClass = elementClass;
+    }
+
+
     public InputFile getInputFile() {
         return inputFile;
     }
 
-    public void visitElements(SensorContext context, InputFile file) {
+    public final void visitElements(SensorContext context, InputFile file) {
         try {
             this.context = context;
             this.inputFile = file;
@@ -59,8 +62,8 @@ public abstract class AbstractElementVisitor<T extends OMTElement> implements El
             allElements.add(omtFile);
             allElements
                     .stream()
-                    .filter(getOMTElementClass()::isInstance)
-                    .map(getOMTElementClass()::cast)
+                    .filter(elementClass::isInstance)
+                    .map(elementClass::cast)
                     .forEach(this::visitElement);
 
         } catch (IOException e) {

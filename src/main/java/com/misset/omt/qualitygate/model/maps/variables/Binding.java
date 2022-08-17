@@ -3,7 +3,6 @@ package com.misset.omt.qualitygate.model.maps.variables;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.regex.Pattern;
@@ -41,8 +40,8 @@ public class Binding extends AbstractStrictShorthandedMap implements DeclaredVar
     }
 
     @Override
-    protected List<String> getShorthandedValueKeys() {
-        return List.of(BIND_TO);
+    public Collection<String> getShorthandedValueKeys() {
+        return Set.of(BIND_TO);
     }
 
     @Override

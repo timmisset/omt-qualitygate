@@ -1,7 +1,6 @@
-package com.misset.omt.qualitygate.checks;
+package com.misset.omt.qualitygate.rules;
 
 import com.misset.omt.qualitygate.model.OMTElement;
-import com.misset.omt.qualitygate.rules.UtilsShouldBeKeptSeparate;
 import com.misset.omt.qualitygate.visitors.AbstractElementVisitor;
 import com.misset.omt.qualitygate.visitors.OMTFileVisitor;
 import org.junit.jupiter.api.Test;

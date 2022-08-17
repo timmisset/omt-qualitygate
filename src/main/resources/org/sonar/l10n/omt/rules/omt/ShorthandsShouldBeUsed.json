@@ -1,0 +1,6 @@
+{
+  "title": "Shorthand notations should be used whenever possible",
+  "type": "CODE_SMELL",
+  "status": "ready",
+  "defaultSeverity": "Minor"
+}

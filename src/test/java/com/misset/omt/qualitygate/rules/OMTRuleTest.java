@@ -1,4 +1,4 @@
-package com.misset.omt.qualitygate.checks;
+package com.misset.omt.qualitygate.rules;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;

@@ -7,9 +7,8 @@ public class VariableVisitor extends AbstractElementVisitor<DeclaredVariable> {
 
     public static final VariableVisitor INSTANCE = new VariableVisitor();
 
-    @Override
-    protected Class<DeclaredVariable> getOMTElementClass() {
-        return DeclaredVariable.class;
+    private VariableVisitor() {
+        super(DeclaredVariable.class);
     }
 
     @Override

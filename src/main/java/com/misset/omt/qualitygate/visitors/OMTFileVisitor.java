@@ -12,9 +12,8 @@ public class OMTFileVisitor extends AbstractElementVisitor<OMTFile> {
 
     public static final OMTFileVisitor INSTANCE = new OMTFileVisitor();
 
-    @Override
-    protected Class<OMTFile> getOMTElementClass() {
-        return OMTFile.class;
+    protected OMTFileVisitor() {
+        super(OMTFile.class);
     }
 
     @Override

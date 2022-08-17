@@ -3,6 +3,7 @@ package com.misset.omt.qualitygate.model.maps.variables;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
@@ -18,7 +19,7 @@ public class Param extends AbstractStrictShorthandedMap implements DeclaredVaria
     public static final String NAME = "name";
     public static final String TYPE = "type";
     private static final List<String> REQUIRED = List.of(NAME);
-    private static final List<String> SHORTHANDED_VALUE_KEYS = List.of(NAME, TYPE);
+    private static final Collection<String> SHORTHANDED_VALUE_KEYS = Set.of(NAME, TYPE);
 
     static {
         properties.put(NAME, VariableNameStringElement::new);
@@ -35,7 +36,7 @@ public class Param extends AbstractStrictShorthandedMap implements DeclaredVaria
     }
 
     @Override
-    protected List<String> getShorthandedValueKeys() {
+    public Collection<String> getShorthandedValueKeys() {
         return SHORTHANDED_VALUE_KEYS;
     }
 

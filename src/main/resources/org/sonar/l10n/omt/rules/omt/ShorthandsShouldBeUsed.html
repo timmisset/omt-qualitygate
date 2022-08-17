@@ -1,0 +1,33 @@
+<p>
+    If a shorthand notation can be used, it should be used to make the code more concise.<br>
+    This rule checks if all the keys used in the mapped notation are also available for a shorthand notation<br>
+</p>
+
+<p>Examples</p>
+The following code snippet would <strong>PASS</strong>:</p>
+<pre>
+model:
+   Activity: !Activity
+       variables:
+       -   name: $naam
+           value: 'test'
+           readOnly: true
+</pre>
+
+The following code snippet would <strong>PASS</strong>:</p>
+<pre>
+model:
+   Activity: !Activity
+       variables:
+       - $naam
+</pre>
+
+<p>The following code snippet would <strong>FAIL</strong>:</p>
+<pre>
+model:
+   Activity: !Activity
+       variables:
+       -   name: $naam
+           value: 'test'
+</pre>
+

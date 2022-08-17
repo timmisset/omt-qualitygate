@@ -11,9 +11,8 @@ public class ModelItemVisitor extends AbstractElementVisitor<ModelItem> {
 
     public static final ModelItemVisitor INSTANCE = new ModelItemVisitor();
 
-    @Override
-    protected Class<ModelItem> getOMTElementClass() {
-        return ModelItem.class;
+    private ModelItemVisitor() {
+        super(ModelItem.class);
     }
 
     @Override
