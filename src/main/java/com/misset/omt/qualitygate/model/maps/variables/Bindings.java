@@ -5,6 +5,8 @@ import com.misset.omt.qualitygate.model.maps.AbstractMap;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class Bindings extends AbstractMap {
+    public static final String BINDINGS = "bindings";
+
     public Bindings(Node node) {
         super(node);
     }

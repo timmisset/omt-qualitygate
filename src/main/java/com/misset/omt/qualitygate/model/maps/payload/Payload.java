@@ -5,6 +5,8 @@ import com.misset.omt.qualitygate.model.maps.AbstractMap;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class Payload extends AbstractMap {
+    public static final String PAYLOAD = "payload";
+
     public Payload(Node node) {
         super(node);
     }

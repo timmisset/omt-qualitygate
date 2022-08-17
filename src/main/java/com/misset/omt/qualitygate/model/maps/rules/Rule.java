@@ -10,9 +10,12 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class Rule extends AbstractStrictMap {
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
+
+    public static final String STRICT = "strict";
+
     static {
-        properties.put("query", ODTQuery::new);
-        properties.put("strict", ODTQuery::new);
+        properties.put(ODTQuery.QUERY, ODTQuery::new);
+        properties.put(STRICT, ODTQuery::new);
     }
 
     public Rule(Node node) {

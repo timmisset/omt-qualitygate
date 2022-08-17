@@ -1,5 +1,6 @@
 package com.misset.omt.qualitygate.model.maps.variables;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
@@ -14,10 +15,9 @@ import org.yaml.snakeyaml.nodes.Node;
 public class Param extends AbstractStrictShorthandedMap implements DeclaredVariable {
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
     private static final Pattern pattern = Pattern.compile("^(?<name>\\$?\\w+)\\s*(\\((?<type>[^)]+)\\))?$");
-
     public static final String NAME = "name";
     public static final String TYPE = "type";
-
+    private static final List<String> REQUIRED = List.of(NAME);
     private static final List<String> SHORTHANDED_VALUE_KEYS = List.of(NAME, TYPE);
 
     static {
@@ -37,6 +37,11 @@ public class Param extends AbstractStrictShorthandedMap implements DeclaredVaria
     @Override
     protected List<String> getShorthandedValueKeys() {
         return SHORTHANDED_VALUE_KEYS;
+    }
+
+    @Override
+    protected Collection<String> getRequiredKeysIfNotShorthanded() {
+        return REQUIRED;
     }
 
     @Override

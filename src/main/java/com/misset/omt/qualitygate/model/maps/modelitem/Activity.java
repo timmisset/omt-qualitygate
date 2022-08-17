@@ -23,28 +23,42 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class Activity extends ModelItem {
 
+    public static final String ACTIVITY = "!Activity";
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
+    public static final String ON_DEFAULT_CLOSE = "onDefaultClose";
+
+    public static final String ON_START = "onStart";
+
+    public static final String ON_COMMIT = "onCommit";
+
+    public static final String ON_CANCEL = "onCancel";
+
+    public static final String ON_DONE = "onDone";
+
+    public static final String RETURNS = "returns";
+
+    public static final String REASON = "reason";
 
     static {
-        properties.put("title", InterpolatedStringElement::new);
-        properties.put("onDefaultClose", InterpolatedStringElement::new);
-        properties.put("params", ParamsSequence::new);
-        properties.put("variables", VariablesSequence::new);
-        properties.put("handlers", HandlersSequence::new);
-        properties.put("graphs", GraphSelection::new);
-        properties.put("watchers", WatchersSequence::new);
-        properties.put("rules", Rules::new);
-        properties.put("prefixes", Prefixes::new);
-        properties.put("queries", ODTQueriesDefinition::new);
-        properties.put("commands", ODTCommandsDefinition::new);
-        properties.put("onStart", ODTScript::new);
-        properties.put("onCommit", ODTScript::new);
-        properties.put("onCancel", ODTScript::new);
-        properties.put("onDone", ODTScript::new);
-        properties.put("returns", ODTQuery::new);
-        properties.put("actions", Actions::new);
-        properties.put("reason", StringElement::new);
-        properties.put("payload", Payload::new);
+        properties.put(TITLE, InterpolatedStringElement::new);
+        properties.put(ON_DEFAULT_CLOSE, InterpolatedStringElement::new);
+        properties.put(ParamsSequence.PARAMS, ParamsSequence::new);
+        properties.put(VariablesSequence.VARIABLES, VariablesSequence::new);
+        properties.put(HandlersSequence.HANDLERS, HandlersSequence::new);
+        properties.put(GraphSelection.GRAPHS, GraphSelection::new);
+        properties.put(WatchersSequence.WATCHERS, WatchersSequence::new);
+        properties.put(Rules.RULES, Rules::new);
+        properties.put(Prefixes.PREFIXES, Prefixes::new);
+        properties.put(ODTQueriesDefinition.QUERIES, ODTQueriesDefinition::new);
+        properties.put(ODTCommandsDefinition.COMMANDS, ODTCommandsDefinition::new);
+        properties.put(ON_START, ODTScript::new);
+        properties.put(ON_COMMIT, ODTScript::new);
+        properties.put(ON_CANCEL, ODTScript::new);
+        properties.put(ON_DONE, ODTScript::new);
+        properties.put(RETURNS, ODTQuery::new);
+        properties.put(Actions.ACTIONS, Actions::new);
+        properties.put(REASON, StringElement::new);
+        properties.put(Payload.PAYLOAD, Payload::new);
     }
 
     public Activity(Node node) {

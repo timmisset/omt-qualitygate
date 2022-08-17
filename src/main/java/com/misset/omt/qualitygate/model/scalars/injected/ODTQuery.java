@@ -8,6 +8,8 @@ import org.yaml.snakeyaml.nodes.Node;
  */
 public class ODTQuery extends StringElement {
 
+    public static final String QUERY = "query";
+
     public ODTQuery(Node node) {
         super(node);
     }

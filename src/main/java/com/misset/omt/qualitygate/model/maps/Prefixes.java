@@ -5,6 +5,8 @@ import com.misset.omt.qualitygate.model.scalars.PrefixNamespaceIriElement;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class Prefixes extends AbstractMap {
+    public static final String PREFIXES = "prefixes";
+
     public Prefixes(Node node) {
         super(node);
     }

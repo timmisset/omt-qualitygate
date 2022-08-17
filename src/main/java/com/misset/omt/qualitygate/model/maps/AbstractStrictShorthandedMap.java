@@ -1,5 +1,7 @@
 package com.misset.omt.qualitygate.model.maps;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -36,6 +38,13 @@ public abstract class AbstractStrictShorthandedMap extends AbstractStrictMap {
 
     protected abstract Pattern getPattern();
     protected abstract List<String> getShorthandedValueKeys();
+
+    protected abstract Collection<String> getRequiredKeysIfNotShorthanded();
+
+    @Override
+    protected final Collection<String> getRequiredKeys() {
+        return isShorthanded ? Collections.emptyList() : getRequiredKeysIfNotShorthanded();
+    }
 
     protected boolean isShorthanded() {
         return isShorthanded;

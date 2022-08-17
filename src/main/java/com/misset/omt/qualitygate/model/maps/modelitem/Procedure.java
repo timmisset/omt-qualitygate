@@ -15,16 +15,21 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class Procedure extends ModelItem {
 
+    public static final String PROCEDURE = "!Procedure";
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
 
+    public static final String ON_RUN = "onRun";
+
+    public static final String REASON = "reason";
+
     static {
-        properties.put("params", ParamsSequence::new);
-        properties.put("variables", VariablesSequence::new);
-        properties.put("graphs", GraphSelection::new);
-        properties.put("prefixes", Prefixes::new);
-        properties.put("onRun", ODTScript::new);
-        properties.put("handlers", HandlersSequence::new);
-        properties.put("reason", StringElement::new);
+        properties.put(ParamsSequence.PARAMS, ParamsSequence::new);
+        properties.put(VariablesSequence.VARIABLES, VariablesSequence::new);
+        properties.put(GraphSelection.GRAPHS, GraphSelection::new);
+        properties.put(Prefixes.PREFIXES, Prefixes::new);
+        properties.put(ON_RUN, ODTScript::new);
+        properties.put(HandlersSequence.HANDLERS, HandlersSequence::new);
+        properties.put(REASON, StringElement::new);
     }
 
     public Procedure(Node node) {

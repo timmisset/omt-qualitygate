@@ -12,9 +12,11 @@ public class OntologyClass extends ModelItem {
 
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
 
+    private static final String ID = "id";
+
     static {
-        properties.put("id", StringElement::new);
-        properties.put("properties", OntologyProperties::new);
+        properties.put(ID, StringElement::new);
+        properties.put(OntologyProperties.PROPERTIES, OntologyProperties::new);
     }
 
     public OntologyClass(Node node) {

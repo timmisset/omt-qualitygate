@@ -5,6 +5,8 @@ import com.misset.omt.qualitygate.model.maps.AbstractMap;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class OntologyProperties extends AbstractMap {
+    static final String PROPERTIES = "properties";
+
     public OntologyProperties(Node node) {
         super(node);
     }

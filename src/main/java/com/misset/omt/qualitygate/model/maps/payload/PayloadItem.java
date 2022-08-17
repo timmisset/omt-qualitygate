@@ -12,11 +12,16 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class PayloadItem extends AbstractStrictMap {
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
+
+    public static final String VALUE = "value";
+
+    public static final String LIST = "list";
+
     static {
-        properties.put("value", ODTQuery::new);
-        properties.put("query", ODTQuery::new);
-        properties.put("list", BooleanElement::new);
-        properties.put("onChange", ODTScript::new);
+        properties.put(VALUE, ODTQuery::new);
+        properties.put(ODTQuery.QUERY, ODTQuery::new);
+        properties.put(LIST, BooleanElement::new);
+        properties.put(ODTScript.ON_CHANGE, ODTScript::new);
     }
 
     public PayloadItem(Node node) {

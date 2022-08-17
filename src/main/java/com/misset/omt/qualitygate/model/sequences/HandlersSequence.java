@@ -15,6 +15,7 @@ import org.yaml.snakeyaml.nodes.Tag;
 public class HandlersSequence extends AbstractSequence {
 
     private static final HashMap<String, Function<Node, AbstractHandler>> handlers = new HashMap<>();
+    public static final String HANDLERS = "handlers";
 
     static {
         handlers.put("!MergePredicates", MergePredicates::new);

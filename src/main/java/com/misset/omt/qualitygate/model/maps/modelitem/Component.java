@@ -20,21 +20,24 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class Component extends ModelItem {
 
+    public static final String COMPONENT = "!Component";
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
 
+    public static final String ON_INIT = "onInit";
+
     static {
-        properties.put("title", InterpolatedStringElement::new);
-        properties.put("bindings", Bindings::new);
-        properties.put("variables", VariablesSequence::new);
-        properties.put("graphs", GraphSelection::new);
-        properties.put("watchers", WatchersSequence::new);
-        properties.put("prefixes", Prefixes::new);
-        properties.put("queries", ODTQueriesDefinition::new);
-        properties.put("commands", ODTCommandsDefinition::new);
-        properties.put("onInit", ODTScript::new);
-        properties.put("actions", Actions::new);
-        properties.put("payload", Payload::new);
-        properties.put("rules", Rules::new);
+        properties.put(TITLE, InterpolatedStringElement::new);
+        properties.put(Bindings.BINDINGS, Bindings::new);
+        properties.put(VariablesSequence.VARIABLES, VariablesSequence::new);
+        properties.put(GraphSelection.GRAPHS, GraphSelection::new);
+        properties.put(WatchersSequence.WATCHERS, WatchersSequence::new);
+        properties.put(Prefixes.PREFIXES, Prefixes::new);
+        properties.put(ODTQueriesDefinition.QUERIES, ODTQueriesDefinition::new);
+        properties.put(ODTCommandsDefinition.COMMANDS, ODTCommandsDefinition::new);
+        properties.put(ON_INIT, ODTScript::new);
+        properties.put(Actions.ACTIONS, Actions::new);
+        properties.put(Payload.PAYLOAD, Payload::new);
+        properties.put(Rules.RULES, Rules::new);
     }
 
     public Component(Node node) {

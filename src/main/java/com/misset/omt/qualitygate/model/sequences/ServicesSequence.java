@@ -5,6 +5,8 @@ import com.misset.omt.qualitygate.model.maps.Service;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class ServicesSequence extends AbstractSequence {
+    public static final String SERVICES = "services";
+
     public ServicesSequence(Node node) {
         super(node);
     }

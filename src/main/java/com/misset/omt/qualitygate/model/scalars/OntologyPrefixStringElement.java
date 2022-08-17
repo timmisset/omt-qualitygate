@@ -8,6 +8,8 @@ import org.yaml.snakeyaml.nodes.Node;
  * which currently is the document root / prefixes location.
  */
 public class OntologyPrefixStringElement extends StringElement {
+    public static final String PREFIX = "prefix";
+
     public OntologyPrefixStringElement(Node node) {
         super(node);
     }

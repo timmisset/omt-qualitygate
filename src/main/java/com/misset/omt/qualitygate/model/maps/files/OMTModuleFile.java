@@ -1,6 +1,8 @@
 package com.misset.omt.qualitygate.model.maps.files;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.function.Function;
 
 import com.misset.omt.qualitygate.model.OMTElement;
@@ -12,28 +14,38 @@ import com.misset.omt.qualitygate.model.maps.modelitem.GraphShapeHandlers;
 import com.misset.omt.qualitygate.model.scalars.StringElement;
 import com.misset.omt.qualitygate.model.scalars.injected.ODTScript;
 import com.misset.omt.qualitygate.model.sequences.ExportSequence;
+import com.misset.omt.qualitygate.model.sequences.HandlersSequence;
 import com.misset.omt.qualitygate.model.sequences.ProceduresSequence;
 import com.misset.omt.qualitygate.model.sequences.ServicesSequence;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class OMTModuleFile extends AbstractStrictMap implements OMTFile {
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
+    private static final String MODULE_NAME = "moduleName";
+    private static final List<String> REQUIRED = List.of(MODULE_NAME);
+    private static final String ON_SESSION_START = "onSessionStart";
+
     static {
         // include all properties from the root
         properties.putAll(OMTDefaultFile.properties);
-        properties.put("moduleName", StringElement::new);
-        properties.put("graphs", GraphSelection::new);
-        properties.put("onSessionStart", ODTScript::new);
-        properties.put("menu", Actions::new);
-        properties.put("actions", GlobalActions::new);
-        properties.put("services", ServicesSequence::new);
-        properties.put("procedures", ProceduresSequence::new);
-        properties.put("export", ExportSequence::new);
-        properties.put("handlers", GraphShapeHandlers::new);
+        properties.put(MODULE_NAME, StringElement::new);
+        properties.put(GraphSelection.GRAPHS, GraphSelection::new);
+        properties.put(ON_SESSION_START, ODTScript::new);
+        properties.put(Actions.MENU, Actions::new);
+        properties.put(Actions.ACTIONS, GlobalActions::new);
+        properties.put(ServicesSequence.SERVICES, ServicesSequence::new);
+        properties.put(ProceduresSequence.PROCEDURES, ProceduresSequence::new);
+        properties.put(ExportSequence.EXPORT, ExportSequence::new);
+        properties.put(HandlersSequence.HANDLERS, GraphShapeHandlers::new);
     }
 
     public OMTModuleFile(Node node) {
         super(node);
+    }
+
+    @Override
+    protected Collection<String> getRequiredKeys() {
+        return REQUIRED;
     }
 
     @Override

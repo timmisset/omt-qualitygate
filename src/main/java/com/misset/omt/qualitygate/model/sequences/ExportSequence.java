@@ -5,6 +5,8 @@ import com.misset.omt.qualitygate.model.scalars.ExportMemberStringElement;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class ExportSequence extends AbstractSequence {
+    public static final String EXPORT = "export";
+
     public ExportSequence(Node node) {
         super(node);
     }

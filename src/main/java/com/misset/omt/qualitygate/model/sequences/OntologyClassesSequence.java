@@ -5,6 +5,8 @@ import com.misset.omt.qualitygate.model.maps.modelitem.ontology.OntologyClass;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class OntologyClassesSequence extends AbstractSequence {
+    public static final String CLASSES = "classes";
+
     public OntologyClassesSequence(Node node) {
         super(node);
     }

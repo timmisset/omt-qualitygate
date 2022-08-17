@@ -15,10 +15,16 @@ public class DeclareInterface extends AbstractStrictMap {
 
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
 
+    private static final String TYPE = "type";
+
+    private static final String RETURNS = "returns";
+
+    private static final List<String> VALUES = List.of("Activity", "Procedure", "Command", "Query");
+
     static {
-        properties.put("type", node -> new FixedValuesStringElement(node, List.of("Activity", "Procedure", "Command", "Query")));
-        properties.put("params", ParamsSequence::new);
-        properties.put("returns", StringElement::new);
+        properties.put(TYPE, node -> new FixedValuesStringElement(node, VALUES));
+        properties.put(ParamsSequence.PARAMS, ParamsSequence::new);
+        properties.put(RETURNS, StringElement::new);
     }
 
     public DeclareInterface(Node node) {

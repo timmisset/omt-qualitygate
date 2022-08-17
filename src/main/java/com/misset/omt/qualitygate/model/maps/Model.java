@@ -21,13 +21,13 @@ public class Model extends AbstractMap {
     private static final HashMap<String, Function<Node, ModelItem>> modelItemProvider = new HashMap<>();
 
     static {
-        modelItemProvider.put("!Activity", Activity::new);
-        modelItemProvider.put("!Component", Component::new);
-        modelItemProvider.put("!GraphShapeHandler", GraphShapeHandlers::new);
-        modelItemProvider.put("!Loadable", Loadable::new);
-        modelItemProvider.put("!Ontology", Ontology::new);
-        modelItemProvider.put("!Procedure", Procedure::new);
-        modelItemProvider.put("!StandaloneQuery", StandaloneQuery::new);
+        modelItemProvider.put(Activity.ACTIVITY, Activity::new);
+        modelItemProvider.put(Component.COMPONENT, Component::new);
+        modelItemProvider.put(GraphShapeHandlers.GRAPH_SHAPE_HANDLERS, GraphShapeHandlers::new);
+        modelItemProvider.put(Loadable.LOADABLE, Loadable::new);
+        modelItemProvider.put(Ontology.ONTOLOGY, Ontology::new);
+        modelItemProvider.put(Procedure.PROCEDURE, Procedure::new);
+        modelItemProvider.put(StandaloneQuery.STANDALONE_QUERY, StandaloneQuery::new);
     }
 
     public Model(Node node) {

@@ -5,6 +5,8 @@ import com.misset.omt.qualitygate.model.maps.AbstractMap;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class Rules extends AbstractMap {
+    public static final String RULES = "rules";
+
     public Rules(Node node) {
         super(node);
     }

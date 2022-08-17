@@ -1,6 +1,9 @@
 package com.misset.omt.qualitygate.model.maps.modelitem.ontology;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Set;
 import java.util.function.Function;
 
 import com.misset.omt.qualitygate.model.OMTElement;
@@ -11,11 +14,19 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class Ontology extends ModelItem {
 
+    public static final String ONTOLOGY = "!Ontology";
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
 
+    private static final Set<String> REQUIRED = Collections.singleton(OntologyPrefixStringElement.PREFIX);
+
     static {
-        properties.put("prefix", OntologyPrefixStringElement::new);
-        properties.put("classes", OntologyClassesSequence::new);
+        properties.put(OntologyPrefixStringElement.PREFIX, OntologyPrefixStringElement::new);
+        properties.put(OntologyClassesSequence.CLASSES, OntologyClassesSequence::new);
+    }
+
+    @Override
+    protected Collection<String> getRequiredKeys() {
+        return REQUIRED;
     }
 
     public Ontology(Node node) {

@@ -12,9 +12,10 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class OMTInterfaceFile extends AbstractStrictMap implements OMTFile {
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
+
     static {
-        properties.put("prefixes", Prefixes::new);
-        properties.put("declare", DeclareModule::new);
+        properties.put(Prefixes.PREFIXES, Prefixes::new);
+        properties.put(DeclareModule.DECLARE, DeclareModule::new);
     }
 
     public OMTInterfaceFile(Node node) {

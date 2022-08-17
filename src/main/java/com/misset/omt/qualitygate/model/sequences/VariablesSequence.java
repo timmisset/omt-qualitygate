@@ -5,6 +5,8 @@ import com.misset.omt.qualitygate.model.maps.variables.Variable;
 import org.yaml.snakeyaml.nodes.Node;
 
 public class VariablesSequence extends AbstractSequence {
+    public static final String VARIABLES = "variables";
+
     public VariablesSequence(Node node) {
         super(node);
     }

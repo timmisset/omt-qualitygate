@@ -8,6 +8,8 @@ import org.yaml.snakeyaml.nodes.Node;
  */
 public class ODTScript extends StringElement {
 
+    public static final String ON_CHANGE = "onChange";
+
     public ODTScript(Node node) {
         super(node);
     }

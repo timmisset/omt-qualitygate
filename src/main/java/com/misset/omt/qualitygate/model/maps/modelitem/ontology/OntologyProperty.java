@@ -1,6 +1,9 @@
 package com.misset.omt.qualitygate.model.maps.modelitem.ontology;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Set;
 import java.util.function.Function;
 
 import com.misset.omt.qualitygate.model.OMTElement;
@@ -12,15 +15,30 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class OntologyProperty extends AbstractStrictMap {
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
+
+    private static final String TYPE = "type";
+    private static final Set<String> REQUIRED_KEYS = Collections.singleton(TYPE);
+
+    private static final String REQUIRED = "required";
+
+    private static final String MULTIPLE = "multiple";
+
+    private static final String MAX_CARDINALITY = "maxCardinality";
+
     static {
-        properties.put("type", StringElement::new);
-        properties.put("required", BooleanElement::new);
-        properties.put("multiple", BooleanElement::new);
-        properties.put("maxCardinality", IntegerElement::new);
+        properties.put(TYPE, StringElement::new);
+        properties.put(REQUIRED, BooleanElement::new);
+        properties.put(MULTIPLE, BooleanElement::new);
+        properties.put(MAX_CARDINALITY, IntegerElement::new);
     }
 
     public OntologyProperty(Node node) {
         super(node);
+    }
+
+    @Override
+    protected Collection<String> getRequiredKeys() {
+        return REQUIRED_KEYS;
     }
 
     @Override

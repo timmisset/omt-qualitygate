@@ -1,6 +1,8 @@
 package com.misset.omt.qualitygate.model.maps.modelitem;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.function.Function;
 
 import com.misset.omt.qualitygate.model.OMTElement;
@@ -13,18 +15,27 @@ import org.yaml.snakeyaml.nodes.Node;
 
 public class StandaloneQuery extends ModelItem {
 
+    public static final String STANDALONE_QUERY = "!StandaloneQuery";
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();
+    private static final List<String> REQUIRED = List.of(ODTQuery.QUERY, GraphSelection.GRAPHS);
+
+    private static final String BASE = "base";
 
     static {
-        properties.put("base", VariableNameStringElement::new);
-        properties.put("params", ParamsSequence::new);
-        properties.put("graphs", GraphSelection::new);
-        properties.put("prefixes", Prefixes::new);
-        properties.put("query", ODTQuery::new);
+        properties.put(BASE, VariableNameStringElement::new);
+        properties.put(ParamsSequence.PARAMS, ParamsSequence::new);
+        properties.put(GraphSelection.GRAPHS, GraphSelection::new);
+        properties.put(Prefixes.PREFIXES, Prefixes::new);
+        properties.put(ODTQuery.QUERY, ODTQuery::new);
     }
 
     public StandaloneQuery(Node node) {
         super(node);
+    }
+
+    @Override
+    protected Collection<String> getRequiredKeys() {
+        return REQUIRED;
     }
 
     @Override
