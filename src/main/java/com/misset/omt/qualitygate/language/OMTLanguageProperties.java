@@ -1,7 +1,6 @@
 package com.misset.omt.qualitygate.language;
 
-import static java.util.Arrays.asList;
-
+import java.util.Collections;
 import java.util.List;
 
 import org.sonar.api.config.PropertyDefinition;
@@ -13,18 +12,18 @@ public class OMTLanguageProperties {
   public static final String FILE_SUFFIXES_DEFAULT_VALUE = ".omt";
 
   private OMTLanguageProperties() {
-    // only statics
+    // private class
   }
 
   public static List<PropertyDefinition> getProperties() {
-    return asList(PropertyDefinition.builder(FILE_SUFFIXES_KEY)
-      .multiValues(true)
-      .defaultValue(FILE_SUFFIXES_DEFAULT_VALUE)
-      .category(OMTLanguage.NAME)
-      .name("File Suffixes")
-      .description("List of suffixes for files to analyze.")
-      .onQualifiers(Qualifiers.PROJECT)
-      .build());
+    return Collections.singletonList(PropertyDefinition.builder(FILE_SUFFIXES_KEY)
+            .multiValues(true)
+            .defaultValue(FILE_SUFFIXES_DEFAULT_VALUE)
+            .category(OMTLanguage.NAME)
+            .name("File Suffixes")
+            .description("List of suffixes for files to analyze.")
+            .onQualifiers(Qualifiers.PROJECT)
+            .build());
   }
 
 }

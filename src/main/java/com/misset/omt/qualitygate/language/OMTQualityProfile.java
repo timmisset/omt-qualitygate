@@ -15,7 +15,7 @@ import org.sonar.api.utils.log.Loggers;
 public final class OMTQualityProfile implements BuiltInQualityProfilesDefinition {
 
     private static final Logger LOGGER = Loggers.get(OMTQualityProfile.class);
-    private static final String OMT_RULES = "OMT Rules";
+    protected static final String OMT_RULES = "OMT Rules";
 
     @Override
     public void define(Context context) {
