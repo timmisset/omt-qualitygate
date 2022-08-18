@@ -10,12 +10,13 @@ import com.misset.omt.qualitygate.model.maps.files.OMTFile;
 import com.misset.omt.qualitygate.model.scalars.ImportMemberStringElement;
 import com.misset.omt.qualitygate.rules.ImportMustBeUsed;
 import com.misset.omt.qualitygate.visitors.AbstractElementVisitor;
+import com.misset.omt.qualitygate.visitors.ElementVisitor;
 import com.misset.omt.qualitygate.visitors.ScalarVisitorUtil;
 import org.apache.commons.lang3.StringUtils;
 
 public class ImportUsageValidator implements Validator<OMTFile> {
 
-    private final AbstractElementVisitor<? extends OMTElement> visitor;
+    private final ElementVisitor<? extends OMTElement> visitor;
 
     public ImportUsageValidator(AbstractElementVisitor<? extends OMTElement> visitor) {
         this.visitor = visitor;
@@ -30,7 +31,7 @@ public class ImportUsageValidator implements Validator<OMTFile> {
 
         String exclusions = visitor.getProperty(ImportMustBeUsed.KEY, ImportMustBeUsed.EXCLUSION);
         if(StringUtils.isNotEmpty(exclusions) &&
-                Arrays.asList(exclusions.split(";")).contains(visitor.getInputFile().filename())) {
+                Arrays.asList(exclusions.split(";")).contains(visitor.getFilename())) {
             return;
         }
 

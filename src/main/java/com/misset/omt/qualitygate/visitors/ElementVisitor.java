@@ -1,8 +1,8 @@
 package com.misset.omt.qualitygate.visitors;
 
 import com.misset.omt.qualitygate.model.OMTElement;
-import org.sonar.api.batch.fs.InputFile;
-import org.sonar.api.batch.sensor.SensorContext;
+import com.misset.omt.qualitygate.sensor.OMTSensorContext;
+import org.sonar.api.rule.RuleKey;
 
 /**
  * Element visitors are used to trigger on certain element types in the OMT structure
@@ -16,6 +16,11 @@ import org.sonar.api.batch.sensor.SensorContext;
  */
 public interface ElementVisitor<T extends OMTElement> {
 
-    void visitElements(SensorContext context, InputFile file);
+    void visitElements(OMTSensorContext context);
 
+    String getProperty(RuleKey key, String propertyKey);
+
+    void newIssue(RuleKey key, OMTElement element);
+
+    String getFilename();
 }
