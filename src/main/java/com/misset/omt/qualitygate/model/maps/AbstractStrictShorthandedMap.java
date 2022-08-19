@@ -1,13 +1,13 @@
 package com.misset.omt.qualitygate.model.maps;
 
+import org.yaml.snakeyaml.nodes.Node;
+import org.yaml.snakeyaml.nodes.ScalarNode;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.yaml.snakeyaml.nodes.Node;
-import org.yaml.snakeyaml.nodes.ScalarNode;
 
 public abstract class AbstractStrictShorthandedMap extends AbstractStrictMap {
 

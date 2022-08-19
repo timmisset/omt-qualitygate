@@ -1,10 +1,5 @@
 package com.misset.omt.qualitygate.visitors;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doAnswer;
-
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.validators.Validator;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +8,11 @@ import org.mockito.MockedConstruction;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.sonar.api.batch.rule.ActiveRule;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doAnswer;
 
 @ExtendWith(MockitoExtension.class)
 public abstract class VisitorTest<T extends OMTElement> {

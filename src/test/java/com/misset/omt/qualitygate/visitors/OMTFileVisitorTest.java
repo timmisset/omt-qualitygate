@@ -1,9 +1,5 @@
 package com.misset.omt.qualitygate.visitors;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
-
 import com.misset.omt.qualitygate.model.maps.files.OMTFile;
 import com.misset.omt.qualitygate.rules.ImportMustBeUsed;
 import com.misset.omt.qualitygate.rules.PrefixMustBeUsed;
@@ -18,6 +14,10 @@ import org.mockito.Answers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class OMTFileVisitorTest extends VisitorTest<OMTFile> {

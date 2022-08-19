@@ -1,16 +1,16 @@
 package com.misset.omt.qualitygate.model.sequences;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-
 import com.misset.omt.qualitygate.model.OMTBaseElement;
 import com.misset.omt.qualitygate.model.OMTElement;
 import org.yaml.snakeyaml.nodes.Node;
 import org.yaml.snakeyaml.nodes.NodeId;
 import org.yaml.snakeyaml.nodes.SequenceNode;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public abstract class AbstractSequence extends OMTBaseElement {
 

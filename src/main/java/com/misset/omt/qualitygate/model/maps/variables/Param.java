@@ -1,17 +1,17 @@
 package com.misset.omt.qualitygate.model.maps.variables;
 
+import com.misset.omt.qualitygate.model.OMTElement;
+import com.misset.omt.qualitygate.model.maps.AbstractStrictShorthandedMap;
+import com.misset.omt.qualitygate.model.scalars.StringElement;
+import com.misset.omt.qualitygate.model.scalars.VariableNameStringElement;
+import org.yaml.snakeyaml.nodes.Node;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.regex.Pattern;
-
-import com.misset.omt.qualitygate.model.OMTElement;
-import com.misset.omt.qualitygate.model.maps.AbstractStrictShorthandedMap;
-import com.misset.omt.qualitygate.model.scalars.StringElement;
-import com.misset.omt.qualitygate.model.scalars.VariableNameStringElement;
-import org.yaml.snakeyaml.nodes.Node;
 
 public class Param extends AbstractStrictShorthandedMap implements DeclaredVariable {
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();

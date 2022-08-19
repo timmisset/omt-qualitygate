@@ -1,13 +1,13 @@
 package com.misset.omt.qualitygate.model.maps.modelitem;
 
+import com.misset.omt.qualitygate.model.OMTElement;
+import com.misset.omt.qualitygate.model.scalars.StringElement;
+import org.yaml.snakeyaml.nodes.Node;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
-
-import com.misset.omt.qualitygate.model.OMTElement;
-import com.misset.omt.qualitygate.model.scalars.StringElement;
-import org.yaml.snakeyaml.nodes.Node;
 
 public class Loadable extends ModelItem {
 

@@ -1,7 +1,5 @@
 package com.misset.omt.qualitygate.validators;
 
-import java.util.Optional;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.TreeUtil;
 import com.misset.omt.qualitygate.model.maps.Prefixes;
@@ -10,6 +8,8 @@ import com.misset.omt.qualitygate.model.scalars.OntologyPrefixStringElement;
 import com.misset.omt.qualitygate.rules.PrefixMustBeUsed;
 import com.misset.omt.qualitygate.visitors.AbstractElementVisitor;
 import com.misset.omt.qualitygate.visitors.ScalarVisitorUtil;
+
+import java.util.Optional;
 
 public class PrefixUsageValidator<T extends OMTElement> implements Validator<T>  {
 

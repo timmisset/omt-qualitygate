@@ -1,12 +1,12 @@
 package com.misset.omt.qualitygate.model.maps;
 
+import com.misset.omt.qualitygate.model.OMTElement;
+import org.yaml.snakeyaml.nodes.Node;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.function.Function;
-
-import com.misset.omt.qualitygate.model.OMTElement;
-import org.yaml.snakeyaml.nodes.Node;
 
 public abstract class AbstractStrictMap extends AbstractMap {
 

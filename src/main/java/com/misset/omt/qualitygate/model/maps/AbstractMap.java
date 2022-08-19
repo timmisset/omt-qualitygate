@@ -1,19 +1,11 @@
 package com.misset.omt.qualitygate.model.maps;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 import com.misset.omt.qualitygate.model.OMTBaseElement;
 import com.misset.omt.qualitygate.model.OMTElement;
-import org.yaml.snakeyaml.nodes.MappingNode;
-import org.yaml.snakeyaml.nodes.Node;
-import org.yaml.snakeyaml.nodes.NodeId;
-import org.yaml.snakeyaml.nodes.NodeTuple;
-import org.yaml.snakeyaml.nodes.ScalarNode;
+import org.yaml.snakeyaml.nodes.*;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public abstract class AbstractMap extends OMTBaseElement {
 

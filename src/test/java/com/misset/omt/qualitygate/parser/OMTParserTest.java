@@ -1,14 +1,14 @@
 package com.misset.omt.qualitygate.parser;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import com.misset.omt.qualitygate.model.maps.files.OMTFile;
+import com.misset.omt.qualitygate.model.maps.files.OMTFileType;
+import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import com.misset.omt.qualitygate.model.maps.files.OMTFile;
-import com.misset.omt.qualitygate.model.maps.files.OMTFileType;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class OMTParserTest {
 

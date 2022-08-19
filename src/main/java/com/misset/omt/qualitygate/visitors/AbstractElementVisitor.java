@@ -1,9 +1,5 @@
 package com.misset.omt.qualitygate.visitors;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import com.misset.omt.qualitygate.issue.OMTIssue;
 import com.misset.omt.qualitygate.issue.OMTIssueLocation;
 import com.misset.omt.qualitygate.model.OMTElement;
@@ -22,6 +18,10 @@ import org.yaml.snakeyaml.nodes.MappingNode;
 import org.yaml.snakeyaml.nodes.Node;
 import org.yaml.snakeyaml.nodes.NodeTuple;
 import org.yaml.snakeyaml.nodes.SequenceNode;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Abstract AbstractElementVisitor that will parse the entire OMT element tree and call visit(T element) on the

@@ -1,11 +1,11 @@
 package com.misset.omt.qualitygate.language;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import org.sonar.api.config.PropertyDefinition;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
-import org.sonar.api.config.PropertyDefinition;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class OMTLanguagePropertiesTest {
 

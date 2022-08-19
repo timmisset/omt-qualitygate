@@ -1,18 +1,18 @@
 package com.misset.omt.qualitygate.model.maps.variables;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.function.Function;
-import java.util.regex.Pattern;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.AbstractStrictShorthandedMap;
 import com.misset.omt.qualitygate.model.scalars.BooleanElement;
 import com.misset.omt.qualitygate.model.scalars.VariableNameStringElement;
 import com.misset.omt.qualitygate.model.scalars.injected.ODTScript;
 import org.yaml.snakeyaml.nodes.Node;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.regex.Pattern;
 
 public class Binding extends AbstractStrictShorthandedMap implements DeclaredVariable {
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();

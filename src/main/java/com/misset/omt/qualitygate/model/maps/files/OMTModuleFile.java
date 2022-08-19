@@ -1,10 +1,5 @@
 package com.misset.omt.qualitygate.model.maps.files;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.function.Function;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.AbstractStrictMap;
 import com.misset.omt.qualitygate.model.maps.GraphSelection;
@@ -18,6 +13,11 @@ import com.misset.omt.qualitygate.model.sequences.HandlersSequence;
 import com.misset.omt.qualitygate.model.sequences.ProceduresSequence;
 import com.misset.omt.qualitygate.model.sequences.ServicesSequence;
 import org.yaml.snakeyaml.nodes.Node;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.function.Function;
 
 public class OMTModuleFile extends AbstractStrictMap implements OMTFile {
     private static final HashMap<String, Function<Node, OMTElement>> properties = new HashMap<>();

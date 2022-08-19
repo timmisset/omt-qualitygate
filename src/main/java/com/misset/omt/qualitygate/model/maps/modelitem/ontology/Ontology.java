@@ -1,16 +1,16 @@
 package com.misset.omt.qualitygate.model.maps.modelitem.ontology;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.function.Function;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.modelitem.ModelItem;
 import com.misset.omt.qualitygate.model.scalars.OntologyPrefixStringElement;
 import com.misset.omt.qualitygate.model.sequences.OntologyClassesSequence;
 import org.yaml.snakeyaml.nodes.Node;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.function.Function;
 
 public class Ontology extends ModelItem {
 

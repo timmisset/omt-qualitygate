@@ -1,8 +1,5 @@
 package com.misset.omt.qualitygate.model.maps.files;
 
-import java.util.HashMap;
-import java.util.function.Function;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.AbstractStrictMap;
 import com.misset.omt.qualitygate.model.maps.Imports;
@@ -11,6 +8,9 @@ import com.misset.omt.qualitygate.model.maps.Prefixes;
 import com.misset.omt.qualitygate.model.scalars.injected.ODTCommandsDefinition;
 import com.misset.omt.qualitygate.model.scalars.injected.ODTQueriesDefinition;
 import org.yaml.snakeyaml.nodes.Node;
+
+import java.util.HashMap;
+import java.util.function.Function;
 
 public class OMTDefaultFile extends AbstractStrictMap implements OMTFile {
 

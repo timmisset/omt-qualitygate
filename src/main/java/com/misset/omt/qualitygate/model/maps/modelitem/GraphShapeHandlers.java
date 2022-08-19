@@ -1,16 +1,16 @@
 package com.misset.omt.qualitygate.model.maps.modelitem;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.function.Function;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.scalars.StringElement;
 import com.misset.omt.qualitygate.model.scalars.injected.ODTQuery;
 import com.misset.omt.qualitygate.model.sequences.HandlersSequence;
 import org.yaml.snakeyaml.nodes.Node;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.function.Function;
 
 public class GraphShapeHandlers extends ModelItem {
 

@@ -1,15 +1,5 @@
 package com.misset.omt.qualitygate.rules;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.lenient;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import com.misset.omt.qualitygate.issue.OMTIssue;
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.files.OMTFileType;
@@ -27,6 +17,12 @@ import org.sonar.api.batch.rule.ActiveRule;
 import org.sonar.api.batch.rule.ActiveRules;
 import org.sonar.api.batch.sensor.issue.NewIssue;
 import org.sonar.api.rule.RuleKey;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public abstract class OMTRuleTest {

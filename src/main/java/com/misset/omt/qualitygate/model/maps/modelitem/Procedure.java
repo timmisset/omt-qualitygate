@@ -1,8 +1,5 @@
 package com.misset.omt.qualitygate.model.maps.modelitem;
 
-import java.util.HashMap;
-import java.util.function.Function;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.GraphSelection;
 import com.misset.omt.qualitygate.model.maps.Prefixes;
@@ -12,6 +9,9 @@ import com.misset.omt.qualitygate.model.sequences.HandlersSequence;
 import com.misset.omt.qualitygate.model.sequences.ParamsSequence;
 import com.misset.omt.qualitygate.model.sequences.VariablesSequence;
 import org.yaml.snakeyaml.nodes.Node;
+
+import java.util.HashMap;
+import java.util.function.Function;
 
 public class Procedure extends ModelItem {
 

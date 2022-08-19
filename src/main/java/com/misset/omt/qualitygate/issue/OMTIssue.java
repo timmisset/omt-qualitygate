@@ -1,9 +1,9 @@
 package com.misset.omt.qualitygate.issue;
 
+import org.sonar.api.rule.RuleKey;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.sonar.api.rule.RuleKey;
 
 /**
  * Create a new issue containing the RuleKey that was violated and the location within the content

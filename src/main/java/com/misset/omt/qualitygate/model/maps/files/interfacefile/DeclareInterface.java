@@ -1,15 +1,15 @@
 package com.misset.omt.qualitygate.model.maps.files.interfacefile;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.function.Function;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.AbstractStrictMap;
 import com.misset.omt.qualitygate.model.scalars.FixedValuesStringElement;
 import com.misset.omt.qualitygate.model.scalars.StringElement;
 import com.misset.omt.qualitygate.model.sequences.ParamsSequence;
 import org.yaml.snakeyaml.nodes.Node;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.function.Function;
 
 public class DeclareInterface extends AbstractStrictMap {
 

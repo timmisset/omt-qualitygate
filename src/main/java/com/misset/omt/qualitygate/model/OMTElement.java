@@ -1,8 +1,8 @@
 package com.misset.omt.qualitygate.model;
 
-import java.util.Collection;
-
 import org.yaml.snakeyaml.nodes.Node;
+
+import java.util.Collection;
 
 /**
  * Base class for all Yaml nodes that are parsed to specific OMTElements

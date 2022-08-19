@@ -1,8 +1,5 @@
 package com.misset.omt.qualitygate.model.maps.actions;
 
-import java.util.HashMap;
-import java.util.function.Function;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.maps.AbstractStrictMap;
 import com.misset.omt.qualitygate.model.scalars.BooleanElement;
@@ -10,6 +7,9 @@ import com.misset.omt.qualitygate.model.scalars.InterpolatedStringElement;
 import com.misset.omt.qualitygate.model.scalars.injected.ODTScript;
 import com.misset.omt.qualitygate.model.sequences.ParamsSequence;
 import org.yaml.snakeyaml.nodes.Node;
+
+import java.util.HashMap;
+import java.util.function.Function;
 
 public class NotificationAction extends AbstractStrictMap {
 

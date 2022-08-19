@@ -1,14 +1,10 @@
 package com.misset.omt.qualitygate.model.sequences;
 
+import com.misset.omt.qualitygate.model.maps.handlers.*;
+import org.yaml.snakeyaml.nodes.Node;
+
 import java.util.HashMap;
 import java.util.function.Function;
-
-import com.misset.omt.qualitygate.model.maps.handlers.AbstractHandler;
-import com.misset.omt.qualitygate.model.maps.handlers.ForbiddenPredicates;
-import com.misset.omt.qualitygate.model.maps.handlers.MergeLists;
-import com.misset.omt.qualitygate.model.maps.handlers.MergePredicates;
-import com.misset.omt.qualitygate.model.maps.handlers.MergeValidation;
-import org.yaml.snakeyaml.nodes.Node;
 
 public class HandlersSequence extends AbstractTaggedValuesSequence<AbstractHandler> {
 

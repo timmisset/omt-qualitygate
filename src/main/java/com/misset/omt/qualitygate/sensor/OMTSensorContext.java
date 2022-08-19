@@ -1,9 +1,9 @@
 package com.misset.omt.qualitygate.sensor;
 
-import java.util.List;
-
 import com.misset.omt.qualitygate.issue.OMTIssue;
 import org.sonar.api.batch.rule.ActiveRules;
+
+import java.util.List;
 
 /**
  * Intermediate class to decouple the analysis from Sonarqubes core API

@@ -1,13 +1,13 @@
 package com.misset.omt.qualitygate.sensor;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.misset.omt.qualitygate.issue.OMTIssue;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.rule.ActiveRules;
 import org.sonar.api.batch.sensor.SensorContext;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OMTSensorContextImpl implements OMTSensorContext {
 

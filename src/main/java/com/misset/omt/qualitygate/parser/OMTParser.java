@@ -1,11 +1,5 @@
 package com.misset.omt.qualitygate.parser;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.StringReader;
-
 import com.misset.omt.qualitygate.model.maps.files.OMTDefaultFile;
 import com.misset.omt.qualitygate.model.maps.files.OMTFile;
 import com.misset.omt.qualitygate.model.maps.files.OMTFileType;
@@ -13,6 +7,8 @@ import com.misset.omt.qualitygate.model.maps.files.OMTModuleFile;
 import com.misset.omt.qualitygate.model.maps.files.interfacefile.OMTInterfaceFile;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.nodes.Node;
+
+import java.io.*;
 
 public class OMTParser {
 

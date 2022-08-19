@@ -1,14 +1,14 @@
 package com.misset.omt.qualitygate.model.scalars;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Optional;
-
 import com.misset.omt.qualitygate.model.OMTBaseElement;
 import com.misset.omt.qualitygate.model.OMTElement;
 import org.yaml.snakeyaml.nodes.Node;
 import org.yaml.snakeyaml.nodes.NodeId;
 import org.yaml.snakeyaml.nodes.ScalarNode;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Optional;
 
 public abstract class AbstractScalar extends OMTBaseElement {
 

@@ -1,8 +1,5 @@
 package com.misset.omt.qualitygate.validators;
 
-import java.util.Arrays;
-import java.util.Optional;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.TreeUtil;
 import com.misset.omt.qualitygate.model.maps.Imports;
@@ -13,6 +10,9 @@ import com.misset.omt.qualitygate.visitors.AbstractElementVisitor;
 import com.misset.omt.qualitygate.visitors.ElementVisitor;
 import com.misset.omt.qualitygate.visitors.ScalarVisitorUtil;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
+import java.util.Optional;
 
 public class ImportUsageValidator implements Validator<OMTFile> {
 

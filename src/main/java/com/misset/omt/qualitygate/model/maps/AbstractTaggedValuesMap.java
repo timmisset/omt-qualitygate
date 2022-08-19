@@ -1,14 +1,14 @@
 package com.misset.omt.qualitygate.model.maps;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Optional;
-import java.util.function.Function;
-
 import com.misset.omt.qualitygate.model.OMTElement;
 import com.misset.omt.qualitygate.model.tags.TaggedValuesContainer;
 import org.yaml.snakeyaml.nodes.Node;
 import org.yaml.snakeyaml.nodes.Tag;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * An TaggedValuesMap expects all entries to be tagged to determine the type of entry
