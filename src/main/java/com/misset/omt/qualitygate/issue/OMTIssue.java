@@ -32,4 +32,8 @@ public class OMTIssue {
     public void addAdditionalLocation(OMTIssueLocation location) {
         additionalLocations.add(location);
     }
+
+    public List<OMTIssueLocation> getAdditionalLocations() {
+        return additionalLocations;
+    }
 }

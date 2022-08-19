@@ -35,7 +35,7 @@ public class Binding extends AbstractStrictShorthandedMap implements DeclaredVar
     }
 
     @Override
-    protected Pattern getPattern() {
+    public Pattern getPattern() {
         return PATTERN;
     }
 

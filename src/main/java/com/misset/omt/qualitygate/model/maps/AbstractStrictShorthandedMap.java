@@ -35,7 +35,7 @@ public abstract class AbstractStrictShorthandedMap extends AbstractStrictMap {
         }
     }
 
-    protected abstract Pattern getPattern();
+    public abstract Pattern getPattern();
     public abstract Collection<String> getShorthandedValueKeys();
 
     protected abstract Collection<String> getRequiredKeysIfNotShorthanded();

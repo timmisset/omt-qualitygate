@@ -57,14 +57,26 @@ public class OMTSensor implements Sensor {
                 omtIssue -> populateSensorContext(sensorContext, omtIssue, inputFile)
         );
     }
+
     private void populateSensorContext(SensorContext sensorContext, OMTIssue issue, InputFile inputFile) {
         NewIssue newIssue = sensorContext.newIssue();
         newIssue.forRule(issue.getKey());
         NewIssueLocation newIssueLocation = newIssue.newLocation();
+        newIssueLocation.message(issue.getLocation().getMessage());
 
         newIssueLocation.on(inputFile);
         newIssueLocation.at(issue.getLocation().toTextRange(inputFile));
         newIssue.at(newIssueLocation);
+
+        // additional issues:
+        issue.getAdditionalLocations().forEach(
+                location -> {
+                    NewIssueLocation additionalLocation = newIssue.newLocation().message(location.getMessage())
+                            .at(issue.getLocation().toTextRange(inputFile))
+                            .on(inputFile);
+                    newIssue.addLocation(additionalLocation);
+                }
+        );
         newIssue.save();
     }
 }

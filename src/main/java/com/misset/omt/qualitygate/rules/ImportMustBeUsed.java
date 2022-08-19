@@ -16,4 +16,7 @@ public class ImportMustBeUsed implements OMTRule {
 
     @RuleProperty(key = EXCLUSION, description = "Exclude certain files (by name) from this check", defaultValue = "index.omt")
     String exclusion;
+
+    public static final String PRIMARY_MESSAGE = "Remove this unused import";
+
 }

@@ -21,7 +21,7 @@ public class ModelItemVisitor extends AbstractElementVisitor<ModelItem> {
         TreeUtil.findChildren(modelItem, DeclaredVariable.class)
                 .stream()
                 .filter(variable -> !ScalarVisitorUtil.containsValue(modelItem, variable, variable.getName()))
-                .forEach(variable -> newIssue(VariableMustBeUsed.KEY, variable));
+                .forEach(variable -> newIssue(VariableMustBeUsed.KEY, variable, "Remove unused variable " + variable.getName()));
 
         // validate prefix usages
         validateIfActive(PrefixMustBeUsed.KEY, new PrefixUsageValidator<>(this));

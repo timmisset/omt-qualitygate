@@ -41,13 +41,13 @@ public class UtilsShouldBeKeptSeparateValidator implements Validator<OMTFile>  {
                 Stream.of(OMTDefaultFile.COMMANDS, OMTDefaultFile.QUERIES)
                         .filter(defaultFile::has)
                         .map(key -> defaultFile.get(key, OMTElement.class))
-                        .forEach(omtElement -> visitor.newIssue(UtilsShouldBeKeptSeparate.KEY, omtElement));
+                        .forEach(omtElement -> visitor.newIssue(UtilsShouldBeKeptSeparate.KEY, omtElement, "Combining utilities with the items that use them is bad, mmmmmkay"));
 
                 // check for model utilities: StandaloneQuery and Procedures
                 Set<Class<? extends ModelItem>> utilModelItems = Set.of(StandaloneQuery.class, Procedure.class);
                 model.getChildren().stream()
                         .filter(omtElement -> utilModelItems.contains(omtElement.getClass()))
-                        .forEach(omtElement -> visitor.newIssue(UtilsShouldBeKeptSeparate.KEY, omtElement));
+                        .forEach(omtElement -> visitor.newIssue(UtilsShouldBeKeptSeparate.KEY, omtElement, "Combining utilities with the items that use them is bad, mmmmmkay"));
             }
         }
     }

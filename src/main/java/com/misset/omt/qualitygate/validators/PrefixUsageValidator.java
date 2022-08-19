@@ -41,7 +41,8 @@ public class PrefixUsageValidator<T extends OMTElement> implements Validator<T> 
     }
 
     private void setIssue(String prefix, Prefixes prefixes) {
-        prefixes.findKeyNode(prefix).ifPresent(scalarNode -> visitor.newIssue(PrefixMustBeUsed.KEY, scalarNode));
+        prefixes.findKeyNode(prefix).ifPresent(scalarNode ->
+                visitor.newIssue(PrefixMustBeUsed.KEY, scalarNode, PrefixMustBeUsed.PRIMARY_MESSAGE));
     }
 
 }

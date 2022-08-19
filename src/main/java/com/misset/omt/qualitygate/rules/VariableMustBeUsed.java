@@ -10,5 +10,4 @@ public class VariableMustBeUsed implements OMTRule {
     public static final String NAME = "VariableMustBeUsed";
 
     public static final RuleKey KEY = OMTRepository.RULE_KEY(NAME);
-
 }

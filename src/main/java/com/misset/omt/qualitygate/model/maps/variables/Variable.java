@@ -36,7 +36,7 @@ public class Variable extends AbstractStrictShorthandedMap implements DeclaredVa
     }
 
     @Override
-    protected Pattern getPattern() {
+    public Pattern getPattern() {
         return PATTERN;
     }
 

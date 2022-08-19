@@ -38,7 +38,7 @@ public class ImportUsageValidator implements Validator<OMTFile> {
         TreeUtil.findChildren(importElement, ImportMemberStringElement.class)
                 .stream()
                 .filter(element -> !ScalarVisitorUtil.containsValue(file, importElement, element.getValueOrEmpty()))
-                .forEach(element -> visitor.newIssue(ImportMustBeUsed.KEY, element));
+                .forEach(element -> visitor.newIssue(ImportMustBeUsed.KEY, element, ImportMustBeUsed.PRIMARY_MESSAGE));
     }
 
 }

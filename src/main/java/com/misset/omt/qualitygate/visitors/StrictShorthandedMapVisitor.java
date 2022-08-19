@@ -15,7 +15,7 @@ public class StrictShorthandedMapVisitor extends AbstractElementVisitor<Abstract
         if(isActive(ShorthandsShouldBeUsed.KEY) &&
                 !map.isShorthanded() &&
                 map.getShorthandedValueKeys().containsAll(map.getKeys())) {
-            newIssue(ShorthandsShouldBeUsed.KEY, map);
+            newIssue(ShorthandsShouldBeUsed.KEY, map, "Replace this map with a shorthand: " + map.getPattern().pattern());
         }
     }
 }

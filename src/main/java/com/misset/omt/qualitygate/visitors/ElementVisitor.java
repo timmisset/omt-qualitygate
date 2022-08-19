@@ -20,7 +20,7 @@ public interface ElementVisitor<T extends OMTElement> {
 
     String getProperty(RuleKey key, String propertyKey);
 
-    void newIssue(RuleKey key, OMTElement element);
+    void newIssue(RuleKey key, OMTElement element, String message);
 
     String getFilename();
 }

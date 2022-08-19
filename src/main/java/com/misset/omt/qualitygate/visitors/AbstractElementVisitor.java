@@ -86,8 +86,8 @@ public abstract class AbstractElementVisitor<T extends OMTElement> implements El
      * Most basic method to add a new issue to the sensor
      * Extracts location information from the Yaml node and respects the configured severity set by the Rule
      */
-    public void newIssue(RuleKey key, OMTElement element) {
-        newIssue(key, element.getNode());
+    public void newIssue(RuleKey key, OMTElement element, String message) {
+        newIssue(key, element.getNode(), message);
     }
 
     /**
@@ -95,22 +95,23 @@ public abstract class AbstractElementVisitor<T extends OMTElement> implements El
      * For example, the key in a map is a ScalarNode by itself but is only considered a String-based key
      * by the AbstractMap. Use the findKey() method on the Map to extract the ScalarNode by String-based key reference.
      */
-    public void newIssue(RuleKey key, Node node) {
-        context.newIssue(new OMTIssue(key, getIssueLocation(node)));
+    public void newIssue(RuleKey key, Node node, String message) {
+        context.newIssue(new OMTIssue(key, getIssueLocation(node, message)));
     }
 
     /**
      * Translates the Yaml node to an OMTIssueLocation
      */
-    protected OMTIssueLocation getIssueLocation(Node node) {
+    protected OMTIssueLocation getIssueLocation(Node node, String message) {
         // SnakeYAML uses 0-based line counting
         // Sonarqube uses 1-based line counting
         Mark endMark = getEndMark(node);
         return new OMTIssueLocation(
                 node.getStartMark().getLine() + 1,
-                endMark.getLine() + 1,
                 node.getStartMark().getColumn(),
-                endMark.getColumn()
+                endMark.getLine() + 1,
+                endMark.getColumn(),
+                message
         );
     }
 

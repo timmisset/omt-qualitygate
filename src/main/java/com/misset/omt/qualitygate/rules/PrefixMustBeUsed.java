@@ -10,4 +10,5 @@ public class PrefixMustBeUsed implements OMTRule {
 
     public static final RuleKey KEY = OMTRepository.RULE_KEY(NAME);
 
+    public static final String PRIMARY_MESSAGE = "Remove this unused prefix";
 }

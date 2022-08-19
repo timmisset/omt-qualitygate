@@ -31,7 +31,7 @@ public class Param extends AbstractStrictShorthandedMap implements DeclaredVaria
     }
 
     @Override
-    protected Pattern getPattern() {
+    public Pattern getPattern() {
         return pattern;
     }
 

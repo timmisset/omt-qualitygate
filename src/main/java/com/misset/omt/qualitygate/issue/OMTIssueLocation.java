@@ -13,11 +13,14 @@ public class OMTIssueLocation {
 
     private final int endLineOffset;
 
-    public OMTIssueLocation(int startLine, int startLineOffset, int endLine, int endLineOffset) {
+    private String message;
+
+    public OMTIssueLocation(int startLine, int startLineOffset, int endLine, int endLineOffset, String message) {
         this.startLine = startLine;
         this.startLineOffset = startLineOffset;
         this.endLine = endLine;
         this.endLineOffset = endLineOffset;
+        this.message = message;
     }
 
     public int getStartLine() {
@@ -38,5 +41,13 @@ public class OMTIssueLocation {
 
     public TextRange toTextRange(InputFile inputFile) {
         return inputFile.newRange(startLine, startLineOffset, endLine, endLineOffset);
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

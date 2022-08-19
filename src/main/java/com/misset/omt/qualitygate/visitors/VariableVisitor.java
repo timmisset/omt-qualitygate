@@ -15,7 +15,7 @@ public class VariableVisitor extends AbstractElementVisitor<DeclaredVariable> {
     void visit(DeclaredVariable element) {
         String name = element.getName();
         if(isActive(VariableNameMustStartWithSymbol.KEY) && name != null && !name.startsWith("$")) {
-            newIssue(VariableNameMustStartWithSymbol.KEY, element);
+            newIssue(VariableNameMustStartWithSymbol.KEY, element, "Variable must start with $-symbol");
         }
     }
 }
