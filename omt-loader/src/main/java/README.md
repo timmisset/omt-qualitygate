@@ -1,8 +1,14 @@
+### OMT-LOADER
+
+The OMT-LOADER module is responsible for translating the yaml structure into a Java representation.
+
 ### MODEL
+
 The OMT model is parsed by consuming all Yaml nodes and returning specific OMTElement classes in return.
 The OMTFile itself also inherits from OMTElement.
 
 The model is structured by the same 3 qualifiers as the Yaml nodes:
+
 - maps
 - sequences
 - scalars

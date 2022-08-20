@@ -7,15 +7,15 @@ import java.util.List;
  * Container class that registers all OMTRules of the plugin
  */
 public class Rules {
-    private static final List<Rule> rules = new ArrayList<>();
+    private static final List<Rule> RULE_LIST = new ArrayList<>();
 
     static {
-        rules.add(new RuleImpl(Keys.IMPORT_MUST_BE_USED, "Remove unused import: %s"));
-        rules.add(new RuleImpl(Keys.PREFIX_MUST_BE_USED, "Remove unused prefix: %s"));
-        rules.add(new RuleImpl(Keys.SHORTHANDS_SHOULD_BE_USED, "Replace this map structure with shorthand: %s"));
-        rules.add(new RuleImpl(Keys.UTILS_SHOULD_BE_KEPT_SEPARATE, "Move this utility section to a dedicated utilities file"));
-        rules.add(new RuleImpl(Keys.VARIABLE_MUST_BE_USED, "Remove unused variable: %s"));
-        rules.add(new RuleImpl(Keys.VARIABLE_NAME_MUST_START_WITH_SYMBOL, "Rename this variable to $%s"));
+        RULE_LIST.add(new RuleImpl(Keys.IMPORT_MUST_BE_USED, "Remove unused import: %s"));
+        RULE_LIST.add(new RuleImpl(Keys.PREFIX_MUST_BE_USED, "Remove unused prefix: %s"));
+        RULE_LIST.add(new RuleImpl(Keys.SHORTHANDS_SHOULD_BE_USED, "Replace this map structure with shorthand: %s"));
+        RULE_LIST.add(new RuleImpl(Keys.UTILS_SHOULD_BE_KEPT_SEPARATE, "Move this utility section to a dedicated utilities file"));
+        RULE_LIST.add(new RuleImpl(Keys.VARIABLE_MUST_BE_USED, "Remove unused variable: %s"));
+        RULE_LIST.add(new RuleImpl(Keys.VARIABLE_NAME_MUST_START_WITH_SYMBOL, "Rename this variable to $%s"));
     }
 
     private Rules() {
@@ -27,7 +27,7 @@ public class Rules {
     }
 
     public static Rule getRule(String ruleKey) {
-        return rules.stream().filter(rule -> ruleKey.equals(rule.getKey())).findFirst().orElseThrow(
+        return RULE_LIST.stream().filter(rule -> ruleKey.equals(rule.getKey())).findFirst().orElseThrow(
                 () -> new RuntimeException("Could not find rule with key: " + ruleKey)
         );
     }
