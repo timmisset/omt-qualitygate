@@ -5,5 +5,5 @@ docker exec sonarqube rm -rf /opt/sonarqube/logs/web.log
 docker exec sonarqube rm -rf /opt/sonarqube/logs/es.log
 
 docker stop sonarqube
-docker cp ..\target\omt-qualitygate-1.0-SNAPSHOT.jar sonarqube:/opt/sonarqube/extensions/plugins/omt-qualitygate-1.0-SNAPSHOT.jar
+docker cp ..\omt-server-plugin\target\omt-server-plugin-1.0-SNAPSHOT.jar sonarqube:/opt/sonarqube/extensions/plugins/omt-qualitygate-1.0-SNAPSHOT.jar
 docker start sonarqube
