@@ -1,30 +1,76 @@
 ## OMT Quality Gate
+
 The OMT Quality Gate Sonarqube plugin adds the OMT Language to Sonarqube along with an "OMT Rules" Quality Profile.
 
-### OMT
-The OMT Language is an extension of YAML (with a strict model) and is treated as such.
-OMT files are parsed using SnakeYAML compose to retrieve node information from the YAML structure.
-This node information contains fundamentals such as types (map, sequence, scalar), location, values etc.
+The project consists of 3 modules:
 
-Using the OMTElement parsing routine, the OMT File is processed and Java classes are instantiated for
-each corresponding element.
-Scalar such as strings can be extended to be made more specific in order to recognize them or to implement certain rules
+- omt-loader: parses the yaml to a java structure
+- omt-analyzer: analyses the java structure with a set of rules
+- omt-server-plugin: implements all required classes to make the omt language available to the Sonarqube server
+  See README in the modules to get more information.
 
-### Validation
-To challenge an OMT file with the registered checks an ElementVisitor will recursively visit all elements in the
-OMT tree. Context is important in many validations, so it's also important to determine at which level you want to
-run the validation. For example, to determine if a variable is used the context is the ModelItem (!Activity, !Component) where it
-is declared. Therefore, a ModelItemVisitor extends the ElementVisitor and will call visit every ModelItem in the OMT File.
-Within this scope the TreeUtil can be used to obtain all DeclaredVariable instances (which will return variables, params and bindings).
-Then the usage of the variable (currently, simple by checking the presence of the name) is determined in any structure part of the ModelItem which
-excluding the DeclaredVariable itself.
+## Contribute
 
-The design is to have a specific visitor per OMT element which can validate 1 or more rules.
+When you want to contribute to this project these are the steps:
 
-### Build plugin
-Use mvn clean package to generate the jar. Copy the jar to the /extensions/plugin on the Sonarqube server
+### OMT structure extended
 
-### Test local
-To test the plugin locally, use the https://bitbucket.ontwikkel.local/projects/OPP/repos/opp-docker/browse/sonarqube repo
-Use the remove/start routine when you want to deploy a new jar.
+If the OMT structure is modified in the OPP project, the changes must be reflected in the omt-loader module.
+This is straight-forward. Let's say you want to add a property to the Activity class. This is map so it resides under
+maps / modelitem / Activity.java.
+Then extend the static block that adds properties with a new key:value pair. The value is a function that takes a yaml
+node
+and returns an OMTElement. If it is a scalar field you can pick on the available literal scalars available. If you want
+to
+do certain checks on this field it is advised to extend a base scalar with your own implementation.
+For this example, let's assume we create a new MyScalar.java that extends StringElement. The new class must contain a
+constructor
+that accepts a node.
 
+### Adding a rule
+
+If the MyScalar field described must be validated, a new rule needs to be added to the omt-analyzer:
+
+#### omt-analyzer
+
+- Add a key to the Rules.java$Keys class for the new rule: MyNewRule
+- If the rule takes arguments, add them to the Rules.java$Attributes
+- Create a new implementation of Rule for MyNewRule in the RULE_LIST of Rules.java. You need to provide a message
+  for the issue that is set on the specific location of the issue. You can provide message arguments to tailor the
+  message
+  based on the specific value/conditions of the scalar that is being handled.
+- Create a new visitor for MyScalar.java by extending AbstractElementVisitor with MyScalar type: MyScalarVisitor.java.
+  The AbstractElementVisitor will take care that MyScalarVisitor.java will now only trigger on MyScalar.java
+- Create an implementation for the visit(MyScalar element) method. It is advised to create a Validator class for more
+  generic
+  checks that can be re-used by other visitors.
+- Call the newIssue method in the visitor to register if the scalar field violates whatever rule you create.
+
+That's it for the omt-analyzer. The newIssue call takes care of setting the specific location where the issue occured
+and creates the
+issue message. Don't forget to create a test to confirm your rule setup works.
+
+#### omt-server-plugin
+
+To make the rule available for Sonarqube you need to implement some required classes for Sonarqube server:
+
+- Add a new class in rules: MyNewRule.java and annotate it using @Rule and @RuleProperty, this will allow the server
+  admin
+  to provide specific settings for MyNewRule. See ImportMustBeUsed.java for an example with properties.
+- Add the class to the SonarRules.java ACTIVE_RULES or INACTIVE_RULES. The activity can be modified on the server later,
+  this sets the default state
+- Finally, add a html and json file in resources/org/sonar/l10n/omt/rules/omt. The html file is the 'why is this an
+  issue' documentation
+  that will be shown on the server. The json determines the default type (bug, code-smell). Again, these settings serve
+  as default settings
+  but can be overwritten server-side by the server admin.
+
+That's all for adding a new rule. Of course the complexity resides in the implementation of the validation. Make sure
+you pick the right visitor type
+to do the analysis. The TreeUtil is a good tool to quickly find elements in the scope of the visitors target element.
+The idea is to always
+work from a top-down model traversion. This means that if you need to check if a variable is being used, you don't
+create a visitor
+for a variable but for a modelitem (like an Activity) which is the right scope for variable declaration and usage.
+This way, the visitor can first obtain all variable declarations and then check the remainder of the modelitem structure
+for their usage.
