@@ -6,7 +6,7 @@ import com.misset.omt.qualitygate.analyzer.visitors.OMTFileVisitor;
 import com.misset.omt.qualitygate.model.OMTElement;
 import org.junit.jupiter.api.Test;
 
-class PrefixesMustBeUsedTest extends RuleTest {
+class PrefixesMustBeUsedTest extends SonarRuleTest {
 
     @Override
     protected String getRule() {

@@ -6,7 +6,7 @@ import com.misset.omt.qualitygate.analyzer.visitors.StrictShorthandedMapVisitor;
 import com.misset.omt.qualitygate.model.OMTElement;
 import org.junit.jupiter.api.Test;
 
-public class ShorthandsShouldBeUsedTest extends RuleTest {
+public class ShorthandsShouldBeUsedTest extends SonarRuleTest {
     @Override
     protected String getRule() {
         return Rules.Keys.SHORTHANDS_SHOULD_BE_USED;

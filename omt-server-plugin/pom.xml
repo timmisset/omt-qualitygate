@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>omt-server-plugin</artifactId>
+    <packaging>sonar-plugin</packaging>
+
+    <description>Qualitygate for OMT language</description>
+
     <dependencies>
         <dependency>
             <groupId>com.misset</groupId>
@@ -59,7 +63,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <pluginKey>OMTQualityGate</pluginKey>
-                    <pluginClass>OMTPlugin</pluginClass>
+                    <pluginClass>com.misset.omt.qualitygate.sonarqube.OMTPlugin</pluginClass>
                     <sonarQubeMinVersion>8.9</sonarQubeMinVersion>
                 </configuration>
             </plugin>

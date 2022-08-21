@@ -9,5 +9,5 @@ package com.misset.omt.qualitygate.sonarqube.rules;
  * src/main/resources/org/sonar/l10n/omt/rules/omt
  * These will be automatically loaded as long as the name of the files matches exactly with the KEY of annotated rule.
  */
-public interface Rule {
+public interface SonarRule {
 }

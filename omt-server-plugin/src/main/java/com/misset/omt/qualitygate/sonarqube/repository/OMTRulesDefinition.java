@@ -19,7 +19,7 @@ public class OMTRulesDefinition implements RulesDefinition {
     /**
      * Path to the directory/folder containing the descriptor files (JSON and HTML) for the rules
      */
-    public static final String RULES_DEFINITION_FOLDER = "rules";
+    public static final String RULES_DEFINITION_FOLDER = "org/sonar/l10n/omt/rules/omt";
     private final SonarRuntime sonarRuntime;
 
     public OMTRulesDefinition(SonarRuntime sonarRuntime) {

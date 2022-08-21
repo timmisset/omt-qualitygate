@@ -1,8 +1,9 @@
 package com.misset.omt.qualitygate.sonarqube.rules;
 
 import com.misset.omt.qualitygate.analyzer.rules.Rules;
+import org.sonar.check.Rule;
 
-@org.sonar.check.Rule(key = Rules.Keys.VARIABLE_MUST_BE_USED,
+@Rule(key = Rules.Keys.VARIABLE_MUST_BE_USED,
         name = Rules.Keys.VARIABLE_MUST_BE_USED)
-public class VariableMustBeUsed implements Rule {
+public class VariableMustBeUsed implements SonarRule {
 }

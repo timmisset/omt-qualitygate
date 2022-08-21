@@ -39,7 +39,7 @@ public class Rules {
         public static final String SHORTHANDS_SHOULD_BE_USED = "ShorthandsShouldBeUsed";
         public static final String UTILS_SHOULD_BE_KEPT_SEPARATE = "UtilsShouldBeKeptSeparate";
         public static final String VARIABLE_MUST_BE_USED = "VariableMustBeUsed";
-        public static final String VARIABLE_NAME_MUST_START_WITH_SYMBOL = "VariableNameMustStartWith$Symbol";
+        public static final String VARIABLE_NAME_MUST_START_WITH_SYMBOL = "VariableNameMustStartWithSymbol";
     }
 
     public static class Attributes {

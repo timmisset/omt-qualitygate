@@ -11,9 +11,9 @@ import java.util.Map;
  */
 public class SonarRules {
 
-    private static final Map<String, Class<? extends Rule>> ACTIVE_RULES = new HashMap<>();
-    private static final Map<String, Class<? extends Rule>> INACTIVE_RULES = new HashMap<>();
-    private static final Map<String, Class<? extends Rule>> ALL_RULES = new HashMap<>();
+    private static final Map<String, Class<? extends SonarRule>> ACTIVE_RULES = new HashMap<>();
+    private static final Map<String, Class<? extends SonarRule>> INACTIVE_RULES = new HashMap<>();
+    private static final Map<String, Class<? extends SonarRule>> ALL_RULES = new HashMap<>();
 
     static {
         // Add checks that should be enabled by default
@@ -35,7 +35,7 @@ public class SonarRules {
 
     }
 
-    public static Collection<Class<? extends Rule>> getAllChecksByClass() {
+    public static Collection<Class<? extends SonarRule>> getAllChecksByClass() {
         return ALL_RULES.values();
     }
 
