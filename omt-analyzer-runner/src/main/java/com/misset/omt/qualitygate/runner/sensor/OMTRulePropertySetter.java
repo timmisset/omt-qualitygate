@@ -1,13 +1,22 @@
 package com.misset.omt.qualitygate.runner.sensor;
 
-import com.misset.omt.qualitygate.analyzer.rules.Rules;
+import org.sonarsource.sonarlint.core.serverapi.rules.ServerActiveRule;
+
+import java.util.Collection;
+import java.util.Map;
 
 public class OMTRulePropertySetter {
 
-    // TODO: make configurable or even better, extract from the Sonarqube server using a project binding
-    public static void setRuleProperties(OMTSensorContextImpl sensorContext) {
-        // currently, only 1 rule has properties
-        sensorContext.setPropertyValue(Rules.Keys.IMPORT_MUST_BE_USED, Rules.Attributes.IMPORT_MUST_BE_USED_EXCLUSION, "index.omt");
+    public static void setRuleProperties(OMTSensorContextImpl sensorContext, Collection<ServerActiveRule> activeRules) {
+        activeRules.forEach(
+                activeRule -> setRuleProperties(sensorContext, activeRule)
+        );
+    }
+
+    private static void setRuleProperties(OMTSensorContextImpl sensorContext, ServerActiveRule rule) {
+        String key = rule.getRuleKey().substring(4); // without the omt: prefix
+        Map<String, String> params = rule.getParams();
+        params.forEach((property, value) -> sensorContext.setPropertyValue(key, property, value));
     }
 
 }

@@ -2,13 +2,14 @@ package com.misset.omt.qualitygate.runner.sensor;
 
 import com.misset.omt.qualitygate.analyzer.context.OMTSensorContext;
 import com.misset.omt.qualitygate.analyzer.issue.OMTIssue;
-import com.misset.omt.qualitygate.analyzer.rules.Rule;
 import com.misset.omt.qualitygate.analyzer.rules.Rules;
+import org.sonarsource.sonarlint.core.serverapi.rules.ServerActiveRule;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,12 +21,16 @@ import java.util.stream.Collectors;
 public class OMTSensorContextImpl implements OMTSensorContext {
 
     private final File file;
+    private final List<String> activeRules;
     private final String content;
 
     private final List<OMTIssue> issues = new ArrayList<>();
 
-    public OMTSensorContextImpl(File file) {
+    public OMTSensorContextImpl(File file, Collection<ServerActiveRule> activeRules) {
         this.file = file;
+        this.activeRules = activeRules.stream()
+                .map(ServerActiveRule::getRuleKey)
+                .map(s -> s.substring(4)).collect(Collectors.toList());
         try {
             this.content = Files.readString(file.toPath());
         } catch (IOException e) {
@@ -39,7 +44,7 @@ public class OMTSensorContextImpl implements OMTSensorContext {
 
     @Override
     public List<String> getActiveRules() {
-        return Rules.getRules().stream().map(Rule::getKey).collect(Collectors.toList());
+        return activeRules;
     }
 
     @Override

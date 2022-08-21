@@ -9,6 +9,7 @@
         <module>omt-analyzer</module>
         <module>omt-server-plugin</module>
         <module>omt-loader</module>
+        <module>omt-analyzer-runner</module>
     </modules>
 
     <properties>

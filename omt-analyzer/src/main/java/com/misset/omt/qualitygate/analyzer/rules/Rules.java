@@ -1,6 +1,8 @@
 package com.misset.omt.qualitygate.analyzer.rules;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -26,6 +28,10 @@ public class Rules {
         return RULE_LIST.stream().filter(rule -> ruleKey.equals(rule.getKey())).findFirst().orElseThrow(
                 () -> new RuntimeException("Could not find rule with key: " + ruleKey)
         );
+    }
+
+    public static Collection<Rule> getRules() {
+        return Collections.unmodifiableCollection(RULE_LIST);
     }
 
     public static class Keys {
