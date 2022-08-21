@@ -1,4 +1,4 @@
-package rules;
+package com.misset.omt.qualitgate.analyzer.rules;
 
 import com.misset.omt.qualitygate.analyzer.rules.Rules;
 import com.misset.omt.qualitygate.analyzer.visitors.AbstractElementVisitor;
@@ -6,7 +6,7 @@ import com.misset.omt.qualitygate.analyzer.visitors.VariableVisitor;
 import com.misset.omt.qualitygate.model.OMTElement;
 import org.junit.jupiter.api.Test;
 
-class VariableNameMustStartWithSymbolTest extends SonarRuleTest {
+class VariableNameMustStartWithSymbolTest extends RuleTest {
 
     @Override
     protected String getRule() {

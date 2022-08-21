@@ -1,4 +1,4 @@
-package rules;
+package com.misset.omt.qualitgate.analyzer.rules;
 
 import com.misset.omt.qualitygate.analyzer.rules.Rules;
 import com.misset.omt.qualitygate.analyzer.visitors.AbstractElementVisitor;
@@ -6,7 +6,7 @@ import com.misset.omt.qualitygate.analyzer.visitors.StrictShorthandedMapVisitor;
 import com.misset.omt.qualitygate.model.OMTElement;
 import org.junit.jupiter.api.Test;
 
-public class ShorthandsShouldBeUsedTest extends SonarRuleTest {
+public class ShorthandsShouldBeUsedTest extends RuleTest {
     @Override
     protected String getRule() {
         return Rules.Keys.SHORTHANDS_SHOULD_BE_USED;

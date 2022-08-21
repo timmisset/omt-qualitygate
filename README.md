@@ -74,3 +74,9 @@ create a visitor
 for a variable but for a modelitem (like an Activity) which is the right scope for variable declaration and usage.
 This way, the visitor can first obtain all variable declarations and then check the remainder of the modelitem structure
 for their usage.
+
+### Tests
+
+The fastest way to create a new test is to use the analyzer.rules.RuleTest base. This provides easy ways to
+enable/disable
+a rule and check against a given omt content if an issue is created.

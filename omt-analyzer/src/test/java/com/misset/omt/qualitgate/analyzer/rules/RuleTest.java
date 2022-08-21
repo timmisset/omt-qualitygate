@@ -1,4 +1,4 @@
-package rules;
+package com.misset.omt.qualitgate.analyzer.rules;
 
 import com.misset.omt.qualitygate.analyzer.context.OMTSensorContext;
 import com.misset.omt.qualitygate.analyzer.issue.OMTIssue;
@@ -13,9 +13,6 @@ import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.verification.VerificationMode;
-import org.sonar.api.batch.rule.ActiveRule;
-import org.sonar.api.batch.rule.ActiveRules;
-import org.sonar.api.batch.sensor.issue.NewIssue;
 
 import java.util.Collections;
 
@@ -25,19 +22,10 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public abstract class SonarRuleTest {
+public abstract class RuleTest {
 
     @Mock
     protected OMTSensorContext context;
-
-    @Mock
-    protected ActiveRules activeRules;
-
-    @Mock
-    protected ActiveRule activeRule;
-
-    @Mock
-    protected NewIssue newIssue;
 
     @Captor
     private ArgumentCaptor<OMTIssue> omtIssueArgumentCaptor;

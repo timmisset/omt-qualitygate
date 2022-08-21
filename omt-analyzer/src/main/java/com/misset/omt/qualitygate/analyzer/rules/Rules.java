@@ -22,10 +22,6 @@ public class Rules {
 
     }
 
-    public static void setActive(String ruleKey) {
-        getRule(ruleKey).setActive();
-    }
-
     public static Rule getRule(String ruleKey) {
         return RULE_LIST.stream().filter(rule -> ruleKey.equals(rule.getKey())).findFirst().orElseThrow(
                 () -> new RuntimeException("Could not find rule with key: " + ruleKey)
