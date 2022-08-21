@@ -2,10 +2,13 @@
 
 The OMT Quality Gate Sonarqube plugin adds the OMT Language to Sonarqube along with an "OMT Rules" Quality Profile.
 
-The project consists of 3 modules:
+The project consists of 4 modules:
 
 - omt-loader: parses the yaml to a java structure
 - omt-analyzer: analyses the java structure with a set of rules
+- omt-analyzer-runner: fetches configuration from the Sonarqube server and runs the analyzer locally from the command
+  line.
+  It validates all omt files in the folder/subfolders from where it is started.
 - omt-server-plugin: implements all required classes to make the omt language available to the Sonarqube server
   See README in the modules to get more information.
 
@@ -51,7 +54,6 @@ and creates the
 issue message. Don't forget to create a test to confirm your rule setup works.
 
 #### omt-server-plugin
-
 To make the rule available for Sonarqube you need to implement some required classes for Sonarqube server:
 
 - Add a new class in rules: MyNewRule.java and annotate it using @Rule and @RuleProperty, this will allow the server
@@ -64,6 +66,10 @@ To make the rule available for Sonarqube you need to implement some required cla
   that will be shown on the server. The json determines the default type (bug, code-smell). Again, these settings serve
   as default settings
   but can be overwritten server-side by the server admin.
+
+#### omt-analyzer-runner
+
+Nothing needs to be updated here.
 
 That's all for adding a new rule. Of course the complexity resides in the implementation of the validation. Make sure
 you pick the right visitor type
