@@ -10,13 +10,11 @@ import java.util.Collection;
 
 public class ServerConnection {
 
-    private final EndpointParams endpointParams;
-
     private final ServerApi serverApi;
     private final String projectKey;
 
     public ServerConnection(String endpoint, String token, String projectKey) {
-        endpointParams = new EndpointParams(endpoint, false, null);
+        EndpointParams endpointParams = new EndpointParams(endpoint, false, null);
         serverApi = new ServerApi(endpointParams, new HttpClientImpl(token));
         this.projectKey = projectKey;
     }
