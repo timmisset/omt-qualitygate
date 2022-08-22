@@ -15,6 +15,7 @@ import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.batch.sensor.issue.NewIssue;
 import org.sonar.api.batch.sensor.issue.NewIssueLocation;
+import org.sonar.api.rule.RuleKey;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
 
@@ -49,6 +50,7 @@ public class OMTSensor implements Sensor {
     }
 
     private void populateSensorContext(SensorContext sensorContext, OMTSensorContext omtSensorContext, InputFile inputFile) {
+        LOGGER.info("Number of issues for scanned file: " + inputFile.filename() + " = " + omtSensorContext.getIssues().size());
         omtSensorContext.getIssues().forEach(
                 omtIssue -> populateSensorContext(sensorContext, omtIssue, inputFile)
         );
@@ -56,10 +58,10 @@ public class OMTSensor implements Sensor {
 
     private void populateSensorContext(SensorContext sensorContext, OMTIssue issue, InputFile inputFile) {
         NewIssue newIssue = sensorContext.newIssue();
-        ActiveRule activeRule = sensorContext.activeRules().findByInternalKey(
-                OMTRepository.REPOSITORY_KEY, issue.getKey()
-        );
+        ActiveRule activeRule = sensorContext.activeRules()
+                .find(RuleKey.of(OMTRepository.REPOSITORY_KEY, issue.getKey()));
         if (activeRule == null) {
+            LOGGER.warn("Could not find activeRule based on OMTIssue: " + issue.getKey() + " with repokey: " + OMTRepository.REPOSITORY_KEY);
             return;
         }
 
